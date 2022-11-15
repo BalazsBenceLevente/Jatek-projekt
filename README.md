@@ -1,10 +1,10 @@
-# Jatek-project
+# Jatek-projekt
 
 ## CSAPATTAGOK
 
 | Gáspár Róbert | Balázs Bence | Palánki-Szűcs Donát | Magyari Levente |
 | ------------- | ------------ | ------------------- | --------------- |
 
-## PROJECT LEÍRÁS
+## PROJEKT LEÍRÁS
 
 ## HIBÁK
