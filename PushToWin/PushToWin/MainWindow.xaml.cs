@@ -1,4 +1,5 @@
-﻿using PushToWin.ViewModels;
+﻿using PushToWin.Pages;
+using PushToWin.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace PushToWin
     /// </summary>
     public partial class MainWindow : Window
     {
-        StartWindowModel context = new StartWindowModel();
+        public static MainWindowModel context = new MainWindowModel();
         public MainWindow()
         {
             InitializeComponent();
@@ -30,23 +31,6 @@ namespace PushToWin
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DataContext = context;
-        }
-
-        private void Label_MouseEnter(object sender, MouseEventArgs e)
-        {
-            context.ImgSwitch((sender as Label).Name.ToString());
-        }
-
-        private void Label_MouseLeave(object sender, MouseEventArgs e)
-        {
-            context.ImgSwitch((sender as Label).Name.ToString());
-        }
-
-        private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            //Test
-            btStart.Content = (sender as Label).Name.ToString();
-            //Test end
         }
     }
 }

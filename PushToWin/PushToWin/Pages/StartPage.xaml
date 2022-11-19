@@ -1,0 +1,98 @@
+﻿<Page x:Class="PushToWin.Pages.StartWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PushToWin.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StartPage" Loaded="Page_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Label 
+            Content=""
+            HorizontalContentAlignment="Center" 
+            VerticalContentAlignment="Center" 
+            Grid.Column="2" 
+            Grid.Row="1" 
+            Grid.ColumnSpan="4" 
+            Grid.RowSpan="2" >
+            <Label.Background>
+                <ImageBrush 
+                    ImageSource="/img/mainwindow/Logo.png" 
+                    Stretch="Uniform"/>
+            </Label.Background>
+        </Label>
+        <Label
+            Content=""
+            Name="laGameWindow"
+            Grid.Column="3" 
+            Grid.Row="3" 
+            Grid.ColumnSpan="2" 
+            Margin="30,5,30,5"  MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" MouseLeftButtonUp="Label_MouseLeftButtonUp" >
+            <Label.Background>
+                <ImageBrush 
+                    ImageSource="{Binding Start}" 
+                    Stretch="Uniform"/>
+            </Label.Background>
+        </Label>
+        <Label
+            Content=""
+            Name="laLevelSelector"
+            Grid.Column="3" 
+            Grid.Row="4" 
+            Grid.ColumnSpan="2" 
+            Margin="30,5,30,5"  MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" MouseLeftButtonUp="Label_MouseLeftButtonUp">
+            <Label.Background>
+                <ImageBrush 
+                    ImageSource="{Binding LevelSelector}" 
+                    Stretch="Uniform"/>
+            </Label.Background>
+        </Label>
+        <Label 
+            Content=""
+            Name="laLevelEditorSelect"
+            Grid.Column="3" 
+            Grid.Row="5" 
+            Grid.ColumnSpan="2" 
+            Margin="30,5,30,5"  MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" MouseLeftButtonUp="Label_MouseLeftButtonUp">
+            <Label.Background>
+                <ImageBrush 
+                    ImageSource="{Binding MapEditor}" 
+                    Stretch="Uniform"/>
+            </Label.Background>
+        </Label>
+        <Label
+            Content=""
+            Name="laQuit"
+            Grid.Column="3" 
+            Grid.Row="6" 
+            Grid.ColumnSpan="2" 
+            Margin="30,5,30,5"  MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" MouseLeftButtonUp="Label_MouseLeftButtonUp">
+            <Label.Background>
+                <ImageBrush 
+                    ImageSource="{Binding Quit}" 
+                    Stretch="Uniform"/>
+            </Label.Background>
+        </Label>
+    </Grid>
+</Page>

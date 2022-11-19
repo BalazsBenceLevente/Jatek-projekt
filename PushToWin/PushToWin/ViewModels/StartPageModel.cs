@@ -6,7 +6,7 @@ using System.Text;
 
 namespace PushToWin.ViewModels
 {
-    public class StartWindowModel : INotifyPropertyChanged
+    public class StartPageModel : INotifyPropertyChanged
     {
         #region ImgChangeModel
         private string
@@ -69,19 +69,19 @@ namespace PushToWin.ViewModels
         public void ImgSwitch(string name) {
             switch (name)
             {
-                case "btStart":
+                case "laGameWindow":
                     (start, startHover) = (startHover, start);
                     PropertyChangedHandler(nameof(start));
                     break;
-                case "btLevelSelector":
+                case "laLevelSelector":
                     (levelSelector, levelHover) = ( levelHover, levelSelector);
                     PropertyChangedHandler(nameof(levelSelector));
                     break;
-                case "btMapEditor":
+                case "laLevelEditorSelect":
                     (mapEditor, mapEditorHover) = (mapEditorHover, mapEditor);
                     PropertyChangedHandler(nameof(mapEditor));
                     break;
-                case "btQuit":
+                case "laQuit":
                     (quit, quitHover) = (quitHover,quit);
                     PropertyChangedHandler(nameof(quit));
                     break;
