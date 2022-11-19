@@ -38,7 +38,7 @@
             Grid.RowSpan="2" >
             <Label.Background>
                 <ImageBrush 
-                    ImageSource="/img/mainwindow/Logo.png" 
+                    ImageSource="/img/pages/start/Logo.png" 
                     Stretch="Uniform"/>
             </Label.Background>
         </Label>
@@ -51,7 +51,7 @@
             Margin="30,5,30,5"  MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" MouseLeftButtonUp="Label_MouseLeftButtonUp" >
             <Label.Background>
                 <ImageBrush 
-                    ImageSource="{Binding Start}" 
+                    ImageSource="{Binding Img_Start}" 
                     Stretch="Uniform"/>
             </Label.Background>
         </Label>
@@ -64,7 +64,7 @@
             Margin="30,5,30,5"  MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" MouseLeftButtonUp="Label_MouseLeftButtonUp">
             <Label.Background>
                 <ImageBrush 
-                    ImageSource="{Binding LevelSelector}" 
+                    ImageSource="{Binding Img_LevelSelector}" 
                     Stretch="Uniform"/>
             </Label.Background>
         </Label>
@@ -77,7 +77,7 @@
             Margin="30,5,30,5"  MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" MouseLeftButtonUp="Label_MouseLeftButtonUp">
             <Label.Background>
                 <ImageBrush 
-                    ImageSource="{Binding MapEditor}" 
+                    ImageSource="{Binding Img_MapEditor}" 
                     Stretch="Uniform"/>
             </Label.Background>
         </Label>
@@ -90,7 +90,7 @@
             Margin="30,5,30,5"  MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" MouseLeftButtonUp="Label_MouseLeftButtonUp">
             <Label.Background>
                 <ImageBrush 
-                    ImageSource="{Binding Quit}" 
+                    ImageSource="{Binding Img_Quit}" 
                     Stretch="Uniform"/>
             </Label.Background>
         </Label>

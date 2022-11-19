@@ -7,28 +7,56 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="img\mainwindow\LevelSelector.png" />
-    <None Remove="img\mainwindow\Logo.png" />
-    <None Remove="img\mainwindow\MapEditor.png" />
-    <None Remove="img\mainwindow\Quit.png" />
-    <None Remove="img\mainwindow\Start.png" />
+    <None Remove="img\pages\gamewindow\characters\Minusz.png" />
+    <None Remove="img\pages\gamewindow\characters\Plusz.png" />
+    <None Remove="img\pages\gamewindow\characters\Szorzas.png" />
+    <None Remove="img\pages\gamewindow\floor\Fal1.png" />
+    <None Remove="img\pages\gamewindow\floor\Talaj1.png" />
+    <None Remove="img\pages\gamewindow\floor\Talaj2.png" />
+    <None Remove="img\pages\gamewindow\floor\Talaj3.png" />
+    <None Remove="img\pages\LevelSelector.png" />
+    <None Remove="img\pages\Logo.png" />
+    <None Remove="img\pages\MapEditor.png" />
+    <None Remove="img\pages\Quit.png" />
+    <None Remove="img\pages\Start.png" />
     <None Remove="kep.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="img\mainwindow\LevelSelector.png">
+    <Resource Include="img\pages\gamewindow\characters\Minusz.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\mainwindow\Logo.png">
+    <Resource Include="img\pages\gamewindow\characters\Plusz.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\mainwindow\MapEditor.png">
+    <Resource Include="img\pages\gamewindow\characters\Szorzas.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\mainwindow\Quit.png">
+    <Resource Include="img\pages\gamewindow\floor\Fal1.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\mainwindow\Start.png">
+    <Resource Include="img\pages\gamewindow\floor\Talaj1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\pages\gamewindow\floor\Talaj2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\pages\gamewindow\floor\Talaj3.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\pages\start\LevelSelector.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\pages\start\Logo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\pages\start\MapEditor.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\pages\start\Quit.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\pages\start\Start.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

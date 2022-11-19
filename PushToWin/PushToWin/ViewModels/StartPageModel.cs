@@ -10,80 +10,80 @@ namespace PushToWin.ViewModels
     {
         #region ImgChangeModel
         private string
-            start = "Start.png",
-            levelSelector = "LevelSelector.png",
-            mapEditor = "MapEditor.png",
-            quit = "Quit.png",
+            img_start = "Start.png",
+            img_levelSelector = "LevelSelector.png",
+            img_mapEditor = "MapEditor.png",
+            img_quit = "Quit.png",
             //HoverImg
-            startHover = "Logo.png",
-            levelHover = "Logo.png",
-            mapEditorHover = "Logo.png",
-            quitHover = "Logo.png";
-        public string Start
+            img_startHover = "Logo.png",
+            img_levelHover = "Logo.png",
+            img_mapEditorHover = "Logo.png",
+            img_quitHover = "Logo.png";
+        public string Img_Start
         {
             get
             {
-                return "/img/mainwindow/" + start;
+                return "/img/pages/start/" + img_start;
             }
             set
             {
-                start = value;
-                PropertyChangedHandler(nameof(start));
+                img_start = value;
+                PropertyChangedHandler(nameof(img_start));
             }
         }
-        public string LevelSelector
+        public string Img_LevelSelector
         {
             get
             {
-                return "/img/mainwindow/" + levelSelector;
+                return "/img/pages/start/" + img_levelSelector;
             }
             set
             {
-                levelSelector = value;
-                PropertyChangedHandler(nameof(levelSelector));
+                img_levelSelector = value;
+                PropertyChangedHandler(nameof(img_levelSelector));
             }
         }
-        public string MapEditor
+        public string Img_MapEditor
         {
             get
             {
-                return "/img/mainwindow/" + mapEditor;
+                return "/img/pages/start/" + img_mapEditor;
             }
             set
             {
-                mapEditor = value;
-                PropertyChangedHandler(nameof(mapEditor));
+                img_mapEditor = value;
+                PropertyChangedHandler(nameof(img_mapEditor));
             }
         }
-        public string Quit {
+        public string Img_Quit {
             get
             {
-                return "/img/mainwindow/" + quit;
+                return "/img/pages/start/" + img_quit;
             }
             set
             {
-                quit = value;
-                PropertyChangedHandler(nameof(quit));
+                img_quit = value;
+                PropertyChangedHandler(nameof(img_quit));
             }
         }
         public void ImgSwitch(string name) {
             switch (name)
             {
-                case "laGameWindow":
-                    (start, startHover) = (startHover, start);
-                    PropertyChangedHandler(nameof(start));
+                case "GameWindow":
+                    (img_start, img_startHover) = (img_startHover, img_start);
+                    PropertyChangedHandler(nameof(img_start));
                     break;
-                case "laLevelSelector":
-                    (levelSelector, levelHover) = ( levelHover, levelSelector);
-                    PropertyChangedHandler(nameof(levelSelector));
+                case "LevelSelector":
+                    (img_levelSelector, img_levelHover) = ( img_levelHover, img_levelSelector);
+                    PropertyChangedHandler(nameof(img_levelSelector));
                     break;
-                case "laLevelEditorSelect":
-                    (mapEditor, mapEditorHover) = (mapEditorHover, mapEditor);
-                    PropertyChangedHandler(nameof(mapEditor));
+                case "LevelEditorSelect":
+                    (img_mapEditor, img_mapEditorHover) = (img_mapEditorHover, img_mapEditor);
+                    PropertyChangedHandler(nameof(img_mapEditor));
                     break;
-                case "laQuit":
-                    (quit, quitHover) = (quitHover,quit);
-                    PropertyChangedHandler(nameof(quit));
+                case "Quit":
+                    (img_quit, img_quitHover) = (img_quitHover,img_quit);
+                    PropertyChangedHandler(nameof(img_quit));
                     break;
             }
         }

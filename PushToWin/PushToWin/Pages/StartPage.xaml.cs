@@ -30,12 +30,12 @@ namespace PushToWin.Pages
         }
         private void Label_MouseEnter(object sender, MouseEventArgs e)
         {
-            context.ImgSwitch((sender as Label).Name.ToString());
+            context.ImgSwitch((sender as Label).Name.Substring(2));
         }
 
         private void Label_MouseLeave(object sender, MouseEventArgs e)
         {
-            context.ImgSwitch((sender as Label).Name.ToString());
+            context.ImgSwitch((sender as Label).Name.Substring(2));
         }
 
         private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
