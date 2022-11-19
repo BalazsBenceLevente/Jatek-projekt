@@ -6,4 +6,31 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="img\mainwindow\LevelSelector.png" />
+    <None Remove="img\mainwindow\Logo.png" />
+    <None Remove="img\mainwindow\MapEditor.png" />
+    <None Remove="img\mainwindow\Quit.png" />
+    <None Remove="img\mainwindow\Start.png" />
+    <None Remove="kep.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\mainwindow\LevelSelector.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\mainwindow\Logo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\mainwindow\MapEditor.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\mainwindow\Quit.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\mainwindow\Start.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
 </Project>
