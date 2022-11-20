@@ -7,13 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="img\pages\gamewindow\characters\Minusz.png" />
-    <None Remove="img\pages\gamewindow\characters\Plusz.png" />
-    <None Remove="img\pages\gamewindow\characters\Szorzas.png" />
-    <None Remove="img\pages\gamewindow\floor\Fal1.png" />
-    <None Remove="img\pages\gamewindow\floor\Talaj1.png" />
-    <None Remove="img\pages\gamewindow\floor\Talaj2.png" />
-    <None Remove="img\pages\gamewindow\floor\Talaj3.png" />
+    <Compile Remove="img\pages\gamewindow\**" />
+    <EmbeddedResource Remove="img\pages\gamewindow\**" />
+    <None Remove="img\pages\gamewindow\**" />
+    <Page Remove="img\pages\gamewindow\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="img\pages\LevelSelector.png" />
     <None Remove="img\pages\Logo.png" />
     <None Remove="img\pages\MapEditor.png" />
@@ -23,27 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="img\pages\gamewindow\characters\Minusz.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\pages\gamewindow\characters\Plusz.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\pages\gamewindow\characters\Szorzas.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\pages\gamewindow\floor\Fal1.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\pages\gamewindow\floor\Talaj1.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\pages\gamewindow\floor\Talaj2.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\pages\gamewindow\floor\Talaj3.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="img\pages\start\LevelSelector.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
