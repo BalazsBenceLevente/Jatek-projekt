@@ -23,7 +23,7 @@ namespace PushToWin.ViewModels
         {
             get
             {
-                return "/img/pages/start/" + img_start;
+                return "/img/start/" + img_start;
             }
             set
             {
@@ -35,7 +35,7 @@ namespace PushToWin.ViewModels
         {
             get
             {
-                return "/img/pages/start/" + img_levelSelector;
+                return "/img/start/" + img_levelSelector;
             }
             set
             {
@@ -47,7 +47,7 @@ namespace PushToWin.ViewModels
         {
             get
             {
-                return "/img/pages/start/" + img_mapEditor;
+                return "/img/start/" + img_mapEditor;
             }
             set
             {
@@ -58,7 +58,7 @@ namespace PushToWin.ViewModels
         public string Img_Quit {
             get
             {
-                return "/img/pages/start/" + img_quit;
+                return "/img/start/" + img_quit;
             }
             set
             {

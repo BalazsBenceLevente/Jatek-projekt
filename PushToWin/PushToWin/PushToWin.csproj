@@ -7,35 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="img\pages\gamewindow\**" />
-    <EmbeddedResource Remove="img\pages\gamewindow\**" />
-    <None Remove="img\pages\gamewindow\**" />
-    <Page Remove="img\pages\gamewindow\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="img\pages\LevelSelector.png" />
-    <None Remove="img\pages\Logo.png" />
-    <None Remove="img\pages\MapEditor.png" />
-    <None Remove="img\pages\Quit.png" />
-    <None Remove="img\pages\Start.png" />
     <None Remove="kep.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="img\pages\start\LevelSelector.png">
+    <Resource Include="img\start\LevelSelector.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\pages\start\Logo.png">
+    <Resource Include="img\start\Logo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\pages\start\MapEditor.png">
+    <Resource Include="img\start\MapEditor.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\pages\start\Quit.png">
+    <Resource Include="img\start\Quit.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\pages\start\Start.png">
+    <Resource Include="img\start\Start.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
