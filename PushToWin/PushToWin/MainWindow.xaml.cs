@@ -31,6 +31,7 @@ namespace PushToWin
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DataContext = context;
+            context.MakeVisible("LevelEditor");
         }
     }
 }

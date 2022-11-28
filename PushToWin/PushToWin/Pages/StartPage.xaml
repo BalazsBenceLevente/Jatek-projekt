@@ -36,7 +36,7 @@
             Grid.RowSpan="2" >
             <Label.Background>
                 <ImageBrush 
-                    ImageSource="/img/start/Logo.png" 
+                    ImageSource="/img/pages/start/Logo.png" 
                     Stretch="Uniform"/>
             </Label.Background>
         </Label>

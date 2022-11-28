@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PushToWin.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,13 @@ namespace PushToWin.Pages
         public LevelEditorPage()
         {
             InitializeComponent();
+        }
+
+        LevelEditorModel context = new LevelEditorModel();
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataContext = context;
+            
         }
     }
 }

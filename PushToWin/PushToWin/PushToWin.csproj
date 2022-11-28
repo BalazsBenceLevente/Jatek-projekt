@@ -7,25 +7,79 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="img\start\**" />
+    <EmbeddedResource Remove="img\start\**" />
+    <None Remove="img\start\**" />
+    <Page Remove="img\start\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="img\game\character\Minusz.png" />
+    <None Remove="img\game\character\Plusz.png" />
+    <None Remove="img\game\character\Szorzas.png" />
+    <None Remove="img\game\decor\Fal.png" />
+    <None Remove="img\game\decor\Talaj1.png" />
+    <None Remove="img\game\decor\Talaj10.png" />
+    <None Remove="img\game\decor\Talaj11.png" />
+    <None Remove="img\game\decor\Talaj12.png" />
+    <None Remove="img\game\decor\Talaj13.png" />
+    <None Remove="img\game\decor\Talaj2.png" />
+    <None Remove="img\game\decor\Talaj3.png" />
+    <None Remove="img\game\decor\Talaj4.png" />
+    <None Remove="img\game\decor\Talaj5.png" />
+    <None Remove="img\game\decor\Talaj6.png" />
+    <None Remove="img\game\decor\Talaj7.png" />
+    <None Remove="img\game\decor\Talaj8.png" />
+    <None Remove="img\game\decor\Talaj9.png" />
+    <None Remove="img\game\emptyDebug.png" />
+    <None Remove="img\game\emptyRelease.png" />
+    <None Remove="img\game\object\Doboz.png" />
+    <None Remove="img\game\object\Ko.png" />
+    <None Remove="img\game\object\Lakat.png" />
+    <None Remove="img\game\object\Minusz.png" />
+    <None Remove="img\game\object\Plusz.png" />
+    <None Remove="img\game\object\Szorzas.png" />
+    <None Remove="img\game\object\Zaszlo.png" />
+    <None Remove="img\pages\start\LevelSelector.png" />
+    <None Remove="img\pages\start\Logo.png" />
+    <None Remove="img\pages\start\MapEditor.png" />
+    <None Remove="img\pages\start\Quit.png" />
+    <None Remove="img\pages\start\Start.png" />
     <None Remove="kep.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="img\start\LevelSelector.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\start\Logo.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\start\MapEditor.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\start\Quit.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\start\Start.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="img\game\character\Minusz.png" />
+    <Resource Include="img\game\character\Plusz.png" />
+    <Resource Include="img\game\character\Szorzas.png" />
+    <Resource Include="img\game\decor\Fal.png" />
+    <Resource Include="img\game\decor\Talaj1.png" />
+    <Resource Include="img\game\decor\Talaj10.png" />
+    <Resource Include="img\game\decor\Talaj11.png" />
+    <Resource Include="img\game\decor\Talaj12.png" />
+    <Resource Include="img\game\decor\Talaj13.png" />
+    <Resource Include="img\game\decor\Talaj2.png" />
+    <Resource Include="img\game\decor\Talaj3.png" />
+    <Resource Include="img\game\decor\Talaj4.png" />
+    <Resource Include="img\game\decor\Talaj5.png" />
+    <Resource Include="img\game\decor\Talaj6.png" />
+    <Resource Include="img\game\decor\Talaj7.png" />
+    <Resource Include="img\game\decor\Talaj8.png" />
+    <Resource Include="img\game\decor\Talaj9.png" />
+    <Resource Include="img\game\emptyDebug.png" />
+    <Resource Include="img\game\emptyRelease.png" />
+    <Resource Include="img\game\object\Doboz.png" />
+    <Resource Include="img\game\object\Ko.png" />
+    <Resource Include="img\game\object\Lakat.png" />
+    <Resource Include="img\game\object\Minusz.png" />
+    <Resource Include="img\game\object\Plusz.png" />
+    <Resource Include="img\game\object\Szorzas.png" />
+    <Resource Include="img\game\object\Zaszlo.png" />
+    <Resource Include="img\pages\start\LevelSelector.png" />
+    <Resource Include="img\pages\start\Logo.png" />
+    <Resource Include="img\pages\start\MapEditor.png" />
+    <Resource Include="img\pages\start\Quit.png" />
+    <Resource Include="img\pages\start\Start.png" />
   </ItemGroup>
 
 </Project>
