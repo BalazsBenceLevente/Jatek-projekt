@@ -28,7 +28,7 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Content="Player" HorizontalAlignment="Center"></Label>
-        <ComboBox SelectedItem="{Binding ItemsSelected}" Name="CB_Player" ItemsSource="{Binding ItemsPlayer}" Grid.Row="1" Grid.Column="0" Margin="2">
+        <ComboBox SelectedItem="{Binding ItemsSelectPlayer}" Name="CB_Player" ItemsSource="{Binding ItemsPlayer}" Grid.Row="1" Grid.Column="0" Margin="2" DropDownOpened="ComboBox_DropDownOpened">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <Viewbox>
@@ -38,14 +38,42 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <!--<Label Grid.Row="0" Grid.Column="1" Content="Object" HorizontalAlignment="Center"></Label>
-        <ComboBox SelectedItem="{Binding Object_Selected}" Grid.Row="1" Grid.Column="1" Margin="2"></ComboBox>
+        <Label Grid.Row="0" Grid.Column="1" Content="Object" HorizontalAlignment="Center"></Label>
+        <ComboBox SelectedItem="{Binding ItemsSelectObject}" Name="CB_Object" ItemsSource="{Binding ItemsObject}" Grid.Row="1" Grid.Column="1" Margin="2" DropDownOpened="ComboBox_DropDownOpened">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <Viewbox>
+                        <Image Height="65" Width="65" Source="{Binding ImgSrc}" ToolTip="{Binding Name}"></Image>
+                    </Viewbox>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
         <Label Grid.Row="0" Grid.Column="2" Content="Decor" HorizontalAlignment="Center"></Label>
-        <ComboBox SelectedItem="{Binding Decor_Selected}" Grid.Row="1" Grid.Column="2" Margin="2"></ComboBox>
--->
+        <ComboBox SelectedItem="{Binding ItemsSelectDecor}" Name="CB_Decor" ItemsSource="{Binding ItemsDecor}" Grid.Row="1" Grid.Column="2" Margin="2" DropDownOpened="ComboBox_DropDownOpened">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <Viewbox>
+                        <Image Height="65" Width="65" Source="{Binding ImgSrc}" ToolTip="{Binding Name}"></Image>
+                    </Viewbox>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
         <Label Grid.Row="0" Grid.Column="4" Content="Selected" HorizontalAlignment="Center"></Label>
         <Image  Grid.Row="1" Grid.Column="4" Source="{Binding ItemImgSrc}" ToolTip="{Binding ItemName}" ></Image>
-        
+
+        <Label Grid.Row="0" Grid.Column="7" Content="X" HorizontalAlignment="Center"></Label>
+        <TextBox Text="{Binding Size_X}" Grid.Column="7" Grid.Row="1" Margin="2"  VerticalContentAlignment="Center" FontSize="18" PreviewTextInput="NumbersOnly_PreviewTextInput"/>
+        <Label Grid.Row="0" Grid.Column="8" Content="Y" HorizontalAlignment="Center"></Label>
+        <TextBox Text="{Binding Size_Y}" Grid.Column="8" Grid.Row="1" Margin="2"  VerticalContentAlignment="Center" FontSize="18" PreviewTextInput="NumbersOnly_PreviewTextInput"/>
+        <CheckBox Grid.Column="9" Grid.Row="0" VerticalAlignment="Center" IsChecked="{Binding CBIsChecked}">
+            <TextBlock Text="Don't ask me again!" TextWrapping="Wrap" VerticalAlignment="Center"/>
+        </CheckBox>
+        <Button Name="Set" Content="Set" Grid.Column="9" Grid.Row="1" Margin="3" Click="Set_Click"/>
+
+        <Viewbox Stretch="Uniform" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="10" Margin="4">
+            <Grid Name="gArea" >
+            </Grid>
+        </Viewbox>
     </Grid>
 </Page>

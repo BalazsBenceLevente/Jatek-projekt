@@ -40,6 +40,7 @@
     <None Remove="img\game\object\Plusz.png" />
     <None Remove="img\game\object\Szorzas.png" />
     <None Remove="img\game\object\Zaszlo.png" />
+    <None Remove="img\pages\leveleditor\SelectItem.png" />
     <None Remove="img\pages\start\LevelSelector.png" />
     <None Remove="img\pages\start\Logo.png" />
     <None Remove="img\pages\start\MapEditor.png" />
@@ -75,6 +76,7 @@
     <Resource Include="img\game\object\Plusz.png" />
     <Resource Include="img\game\object\Szorzas.png" />
     <Resource Include="img\game\object\Zaszlo.png" />
+    <Resource Include="img\pages\leveleditor\SelectItem.png" />
     <Resource Include="img\pages\start\LevelSelector.png" />
     <Resource Include="img\pages\start\Logo.png" />
     <Resource Include="img\pages\start\MapEditor.png" />

@@ -1,4 +1,5 @@
 ﻿using PushToWin.Class;
+using PushToWin.Pages;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,39 +12,121 @@ namespace PushToWin.ViewModels
 {
     public class LevelEditorModel : INotifyPropertyChanged
     {
-        public string ItemName { get; set; }
-        public BitmapImage ItemImgSrc { get; set; }
+        #region SelectModel
+        private static GuiGameObjects ItemDefault { get; set; } = new GuiGameObjects("<Select Item>",new BitmapImage(new Uri("/img/pages/leveleditor/SelectItem.png", UriKind.Relative)));
+        public string ItemName { get; set; } = ItemDefault.Name;
+        public BitmapImage ItemImgSrc { get; set; } = ItemDefault.ImgSrc;
 
-        private GuiGameObjects _itemsSelected;
-        public GuiGameObjects ItemsSelected { get { return _itemsSelected; } 
-            set {
-                _itemsSelected = value;
-                PropertyChangedHandler(nameof(_itemsSelected));
+        private GuiGameObjects _itemsPlayer;
+        private GuiGameObjects _itemsObject;
+        private GuiGameObjects _itemsDecor;
+        public GuiGameObjects ItemsSelectPlayer
+        {
+            get { return _itemsPlayer; }
+            set
+            {
+                _itemsPlayer = value;
+                PropertyChangedHandler(nameof(_itemsPlayer));
                 ItemName = value.Name;
                 PropertyChangedHandler(nameof(ItemName));
                 ItemImgSrc = value.ImgSrc;
                 PropertyChangedHandler(nameof(ItemImgSrc));
-            } 
+            }
+        }
+        public GuiGameObjects ItemsSelectObject
+        {
+            get { return _itemsObject; }
+            set
+            {
+                _itemsObject = value;
+                PropertyChangedHandler(nameof(_itemsObject));
+                ItemName = value.Name;
+                PropertyChangedHandler(nameof(ItemName));
+                ItemImgSrc = value.ImgSrc;
+                PropertyChangedHandler(nameof(ItemImgSrc));
+            }
+        }
+        public GuiGameObjects ItemsSelectDecor
+        {
+            get { return _itemsDecor; }
+            set
+            {
+                _itemsDecor = value;
+                PropertyChangedHandler(nameof(_itemsDecor));
+                ItemName = value.Name;
+                PropertyChangedHandler(nameof(ItemName));
+                ItemImgSrc = value.ImgSrc;
+                PropertyChangedHandler(nameof(ItemImgSrc));
+            }
         }
         private static ObservableCollection<GuiGameObjects> _player = new ObservableCollection<GuiGameObjects>()
         {
+            ItemDefault,
             new GuiGameObjects("Plusz",new BitmapImage(new Uri("/img/game/character/Plusz.png",UriKind.Relative))),
             new GuiGameObjects("Minusz",new BitmapImage(new Uri("/img/game/character/Minusz.png",UriKind.Relative))),
+            new GuiGameObjects("Szorzas",new BitmapImage(new Uri("/img/game/character/Szorzas.png",UriKind.Relative))),
 
         };
         public ObservableCollection<GuiGameObjects> ItemsPlayer => _player;
-        //ObservableCollection<GuiGameObjects> _object = new ObservableCollection<GuiGameObjects>()
-        //{
-        //    new GuiGameObjects("Plusz",new Uri("",UriKind.Relative)),
 
-        //};
-        //public ObservableCollection<GuiGameObjects> ItemsObject => _object;
-        //ObservableCollection<GuiGameObjects> _decor = new ObservableCollection<GuiGameObjects>()
-        //{
-        //    new GuiGameObjects("Plusz",new Uri("",UriKind.Relative)),
+        ObservableCollection<GuiGameObjects> _object = new ObservableCollection<GuiGameObjects>()
+        {
+           ItemDefault,
+           new GuiGameObjects("Zaszlo",new BitmapImage(new Uri("/img/game/object/Zaszlo.png",UriKind.Relative))),
+           new GuiGameObjects("Lakat",new BitmapImage(new Uri("/img/game/object/Lakat.png",UriKind.Relative))),
+           new GuiGameObjects("Doboz",new BitmapImage(new Uri("/img/game/object/Doboz.png",UriKind.Relative))),
+           new GuiGameObjects("Kő",new BitmapImage(new Uri("/img/game/object/Ko.png",UriKind.Relative))),
+           new GuiGameObjects("Plusz",new BitmapImage(new Uri("/img/game/object/Plusz.png",UriKind.Relative))),
+           new GuiGameObjects("Minusz",new BitmapImage(new Uri("/img/game/object/Minusz.png",UriKind.Relative))),
+           new GuiGameObjects("Szorzás",new BitmapImage(new Uri("/img/game/object/Szorzas.png",UriKind.Relative))),
 
-        //};
-        //public ObservableCollection<GuiGameObjects> ItemsDecor => _decor;
+        };
+        public ObservableCollection<GuiGameObjects> ItemsObject => _object;
+
+        ObservableCollection<GuiGameObjects> _decor = new ObservableCollection<GuiGameObjects>()
+        {
+            ItemDefault,
+            new GuiGameObjects("Fal",new BitmapImage(new Uri("/img/game/decor/Fal.png",UriKind.Relative))),
+            new GuiGameObjects("Talaj1",new BitmapImage(new Uri("/img/game/decor/Talaj1.png",UriKind.Relative))),
+            new GuiGameObjects("Talaj2",new BitmapImage(new Uri("/img/game/decor/Talaj2.png",UriKind.Relative))),
+            new GuiGameObjects("Talaj3",new BitmapImage(new Uri("/img/game/decor/Talaj3.png",UriKind.Relative))),
+            new GuiGameObjects("Talaj4",new BitmapImage(new Uri("/img/game/decor/Talaj4.png",UriKind.Relative))),
+            new GuiGameObjects("Talaj5",new BitmapImage(new Uri("/img/game/decor/Talaj5.png",UriKind.Relative))),
+            new GuiGameObjects("Talaj6",new BitmapImage(new Uri("/img/game/decor/Talaj6.png",UriKind.Relative))),
+            new GuiGameObjects("Talaj7",new BitmapImage(new Uri("/img/game/decor/Talaj7.png",UriKind.Relative))),
+            new GuiGameObjects("Talaj8",new BitmapImage(new Uri("/img/game/decor/Talaj8.png",UriKind.Relative))),
+            new GuiGameObjects("Talaj9",new BitmapImage(new Uri("/img/game/decor/Talaj9.png",UriKind.Relative))),
+            new GuiGameObjects("Talaj10",new BitmapImage(new Uri("/img/game/decor/Talaj10.png",UriKind.Relative))),
+            new GuiGameObjects("Talaj11",new BitmapImage(new Uri("/img/game/decor/Talaj11.png",UriKind.Relative))),
+            new GuiGameObjects("Talaj12",new BitmapImage(new Uri("/img/game/decor/Talaj12.png",UriKind.Relative))),
+            new GuiGameObjects("Talaj13",new BitmapImage(new Uri("/img/game/decor/Talaj13.png",UriKind.Relative))),
+
+        };
+        public ObservableCollection<GuiGameObjects> ItemsDecor => _decor;
+        #endregion
+        #region SizeModel
+        private uint size_X = 22;
+        public  uint Size_X
+        {
+            get { return size_X; }
+            set { 
+                size_X = value == 0 ? 1 : value;
+                PropertyChangedHandler(nameof(size_X));
+            }
+        }
+        private uint size_Y = 10;
+        public uint Size_Y
+        {
+            get { return size_Y; }
+            set {
+                size_Y = value == 0? 1: value;
+                PropertyChangedHandler(nameof(size_Y));
+            }
+        }
+        #endregion
+        #region CheckedModel
+        public bool CBIsChecked { get; set; }
+        #endregion
         public event PropertyChangedEventHandler PropertyChanged;
         void PropertyChangedHandler([CallerMemberName] string property = "")
         {
