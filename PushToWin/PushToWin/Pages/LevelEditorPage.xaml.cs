@@ -1,4 +1,4 @@
-﻿using PushToWin.Class;
+﻿using PushToWin.Class.Gui;
 using PushToWin.ViewModels;
 using System;
 using System.Collections.Generic;

@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-namespace PushToWin.Class
+namespace PushToWin.Class.Gui
 {
     public class GuiHelper
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PushToWin.Class
+namespace PushToWin.Class.Game
 {
     class Doboz : Object
     {
