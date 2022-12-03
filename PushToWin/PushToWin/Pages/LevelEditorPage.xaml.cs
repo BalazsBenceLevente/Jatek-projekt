@@ -27,17 +27,34 @@ namespace PushToWin.Pages
             InitializeComponent();
         }
 
-        LevelEditorModel context = new LevelEditorModel(); 
+        LevelEditorModel context = new LevelEditorModel();
+        GuiGameMatrix GuiMatrix;
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             DataContext = context;
-            Dispatcher.BeginInvoke(new Action(() => InitGrid()), DispatcherPriority.ContextIdle, null);
+            Dispatcher.BeginInvoke(new Action(() => InitGrid(CB_Decor.Items[2] as GuiGameObjects)), DispatcherPriority.Loaded, null);
         }
-        private void InitGrid()
+        private void InitGrid(GuiGameObjects decorSelect)
         {
-            GuiHelper.MakeColumnDefinition(gArea,context.Size_X);
-            GuiHelper.MakeRowDefinition(gArea,context.Size_Y);
-            GuiHelper.DrawAllScreen(gArea, context.Size_X, context.Size_Y, (CB_Decor.Items[2] as GuiGameObjects).ImgSrc);
+            if (decorSelect.IsDecor)
+            {
+                //Clear
+                gArea.Children.Clear();
+                //Make Grid
+                GuiHelper.MakeColumnDefinition(gArea,context.Size_X);
+                GuiHelper.MakeRowDefinition(gArea,context.Size_Y);
+                //Set Gird
+                GuiHelper.DrawAllScreen(gArea, context.Size_X, context.Size_Y, decorSelect.ImgSrc);
+                //Set Matrix
+                GuiMatrix = new GuiGameMatrix(context.Size_X,context.Size_Y);
+                for (int i = 0; i < context.Size_X; i++)
+                {
+                    for (int a = 0; a < context.Size_Y; a++)
+                    {
+                        GuiMatrix.Objects[i, a] = decorSelect;
+                    }
+                }
+            }
         }
 
         private Regex _regex = new Regex("[^0-9]+");
@@ -49,11 +66,14 @@ namespace PushToWin.Pages
         private void Set_Click(object sender, RoutedEventArgs e)
         {
             string txt = context.Size_X >= 50 || context.Size_Y >= 50 ? "Too large playing field can efect the application preformance!" : "";
+            if (CB_Decor.SelectedIndex == -1 || !(CB_Decor.Items[CB_Decor.SelectedIndex] as GuiGameObjects).IsDecor)
+            {
+                MessageBox.Show($"No Decor selected!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             if (context.CBIsChecked || MessageBox.Show($"Are you sure you want to resize? (It will delete everything!)\n{txt}", "Resize?", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
             {
-                GuiHelper.MakeColumnDefinition(gArea, context.Size_X);
-                GuiHelper.MakeRowDefinition(gArea, context.Size_Y);
-                GuiHelper.DrawAllScreen(gArea, context.Size_X, context.Size_Y, context.ItemImgSrc);
+                InitGrid(CB_Decor.SelectedItem as GuiGameObjects);
             }
         }
         private void ComboBox_DropDownOpened(object sender, EventArgs e)
