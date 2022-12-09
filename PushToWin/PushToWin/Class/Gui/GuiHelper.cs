@@ -1,7 +1,10 @@
-﻿using System;
+﻿using PushToWin.Pages;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Markup;
 using System.Windows.Media.Imaging;
 
 namespace PushToWin.Class.Gui
@@ -66,21 +69,6 @@ namespace PushToWin.Class.Gui
                     throw new Exception("Nem ugyan az méret");
                 }
             }
-        }
-        public static void DrawAllScreen(Grid g,uint x,uint y,BitmapImage setImg)
-        {
-            g.Children.Clear();
-            for (int i = 0; i < x; i++)
-            {
-                for (int a = 0; a < y; a++)
-                {
-                    Image img = new Image();
-                    img.Source = setImg;
-                    Grid.SetColumn(img,i);
-                    Grid.SetRow(img,a);
-                    g.Children.Add(img);
-                }
-            }
-        }
+        }       
     }
 }

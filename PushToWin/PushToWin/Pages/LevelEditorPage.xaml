@@ -63,9 +63,9 @@
         <Image  Grid.Row="1" Grid.Column="4" Source="{Binding ItemImgSrc}" ToolTip="{Binding ItemName}" ></Image>
 
         <Label Grid.Row="0" Grid.Column="7" Content="X" HorizontalAlignment="Center"></Label>
-        <TextBox Text="{Binding Size_X}" Grid.Column="7" Grid.Row="1" Margin="2"  VerticalContentAlignment="Center" FontSize="18" PreviewTextInput="NumbersOnly_PreviewTextInput"/>
+        <TextBox Text="{Binding Size_Column}" Grid.Column="7" Grid.Row="1" Margin="2"  VerticalContentAlignment="Center" FontSize="18" PreviewTextInput="NumbersOnly_PreviewTextInput"/>
         <Label Grid.Row="0" Grid.Column="8" Content="Y" HorizontalAlignment="Center"></Label>
-        <TextBox Text="{Binding Size_Y}" Grid.Column="8" Grid.Row="1" Margin="2"  VerticalContentAlignment="Center" FontSize="18" PreviewTextInput="NumbersOnly_PreviewTextInput"/>
+        <TextBox Text="{Binding Size_Row}" Grid.Column="8" Grid.Row="1" Margin="2"  VerticalContentAlignment="Center" FontSize="18" PreviewTextInput="NumbersOnly_PreviewTextInput"/>
         <CheckBox Grid.Column="9" Grid.Row="0" VerticalAlignment="Center" IsChecked="{Binding CBIsChecked}">
             <TextBlock Text="Don't ask me again!" TextWrapping="Wrap" VerticalAlignment="Center"/>
         </CheckBox>

@@ -26,35 +26,14 @@ namespace PushToWin.Pages
         {
             InitializeComponent();
         }
-
-        LevelEditorModel context = new LevelEditorModel();
-        GuiGameMatrix GuiMatrix;
+        private static LevelEditorPage Instance { get;  set; }
+        public static LevelEditorModel context = new LevelEditorModel();
+        public static GuiGameMatrix GuiMatrix;
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             DataContext = context;
-            Dispatcher.BeginInvoke(new Action(() => InitGrid(CB_Decor.Items[2] as GuiGameObjects)), DispatcherPriority.Loaded, null);
-        }
-        private void InitGrid(GuiGameObjects decorSelect)
-        {
-            if (decorSelect.IsDecor)
-            {
-                //Clear
-                gArea.Children.Clear();
-                //Make Grid
-                GuiHelper.MakeColumnDefinition(gArea,context.Size_X);
-                GuiHelper.MakeRowDefinition(gArea,context.Size_Y);
-                //Set Gird
-                GuiHelper.DrawAllScreen(gArea, context.Size_X, context.Size_Y, decorSelect.ImgSrc);
-                //Set Matrix
-                GuiMatrix = new GuiGameMatrix(context.Size_X,context.Size_Y);
-                for (int i = 0; i < context.Size_X; i++)
-                {
-                    for (int a = 0; a < context.Size_Y; a++)
-                    {
-                        GuiMatrix.Objects[i, a] = decorSelect;
-                    }
-                }
-            }
+            Instance = this;
+            Dispatcher.BeginInvoke(new Action(() => GuiLevelEditorHelper.InitGrid(gArea,CB_Decor.Items[4] as GuiGameObjects)), DispatcherPriority.Loaded, null);
         }
 
         private Regex _regex = new Regex("[^0-9]+");
@@ -62,23 +41,50 @@ namespace PushToWin.Pages
         {
             e.Handled = _regex.IsMatch(e.Text);
         }
-
-        private void Set_Click(object sender, RoutedEventArgs e)
-        {
-            string txt = context.Size_X >= 50 || context.Size_Y >= 50 ? "Too large playing field can efect the application preformance!" : "";
-            if (CB_Decor.SelectedIndex == -1 || !(CB_Decor.Items[CB_Decor.SelectedIndex] as GuiGameObjects).IsDecor)
-            {
-                MessageBox.Show($"No Decor selected!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            if (context.CBIsChecked || MessageBox.Show($"Are you sure you want to resize? (It will delete everything!)\n{txt}", "Resize?", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
-            {
-                InitGrid(CB_Decor.SelectedItem as GuiGameObjects);
-            }
-        }
         private void ComboBox_DropDownOpened(object sender, EventArgs e)
         {
             (sender as ComboBox).SelectedIndex = 0;
+        }
+        private void Set_Click(object sender, RoutedEventArgs e)
+        {
+            if (CB_Decor.SelectedIndex == -1 || !(CB_Decor.Items[CB_Decor.SelectedIndex] as GuiGameObjects).IsDecor)
+            {
+                MessageBox.Show($"No Ground selected!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (context.CBIsChecked) {
+                GuiLevelEditorHelper.InitGrid(gArea,CB_Decor.SelectedItem as GuiGameObjects);
+                return;
+            }
+            if (((context.Size_Column >= 50) || (context.Size_Row >= 50)) && MessageBox.Show($"Too large playing field can efect the application preformance! Are you sure you want to continue ?", "Too Large!", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+            {
+                return;
+            }
+            if (MessageBox.Show($"Are you sure you want to resize? (It will delete everything!)", "Resize?", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+            {
+                return;
+            }
+            GuiLevelEditorHelper.InitGrid(gArea,CB_Decor.SelectedItem as GuiGameObjects);
+        }
+        public static void Img_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var img = (sender as Image);
+            int row = Grid.GetRow(img), column= Grid.GetColumn(img);
+            if (context.ItemIsPlayer) //TODO: delete other player if laced
+            {
+                img.Source = context.ItemImgSrc;
+                GuiMatrix.Objects[row,column] = context.ItemSelected;
+            }
+            else if (context.ItemIsObject)
+            {
+                img.Source = context.ItemImgSrc;
+                GuiMatrix.Objects[row, column] = context.ItemSelected;
+            }
+            else if (context.ItemIsDecor) //TODO: place item in bacground
+            {
+                GuiLevelEditorHelper.SetImgGround(Instance.gArea, (uint)row, (uint)column,context.ItemImgSrc);
+                GuiMatrix.Decor[row, column] = context.ItemSelected;
+            }
         }
     }
 }

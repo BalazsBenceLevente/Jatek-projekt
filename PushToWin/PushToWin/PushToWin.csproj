@@ -18,6 +18,9 @@
     <None Remove="img\game\character\Plusz.png" />
     <None Remove="img\game\character\Szorzas.png" />
     <None Remove="img\game\decor\Fal.png" />
+    <None Remove="img\game\decor\Fal1.png" />
+    <None Remove="img\game\decor\Fal2.png" />
+    <None Remove="img\game\decor\Fal3.png" />
     <None Remove="img\game\decor\Talaj1.png" />
     <None Remove="img\game\decor\Talaj10.png" />
     <None Remove="img\game\decor\Talaj11.png" />
@@ -53,7 +56,9 @@
     <Resource Include="img\game\character\Minusz.png" />
     <Resource Include="img\game\character\Plusz.png" />
     <Resource Include="img\game\character\Szorzas.png" />
-    <Resource Include="img\game\decor\Fal.png" />
+    <Resource Include="img\game\decor\Fal1.png" />
+    <Resource Include="img\game\decor\Fal2.png" />
+    <Resource Include="img\game\decor\Fal3.png" />
     <Resource Include="img\game\decor\Talaj1.png" />
     <Resource Include="img\game\decor\Talaj10.png" />
     <Resource Include="img\game\decor\Talaj11.png" />
