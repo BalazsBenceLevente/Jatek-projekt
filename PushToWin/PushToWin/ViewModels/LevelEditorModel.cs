@@ -13,6 +13,7 @@ namespace PushToWin.ViewModels
     public class LevelEditorModel : INotifyPropertyChanged
     {
         #region SelectModel
+        public static GuiGameObjects ItemEmpty { get; set; } = new GuiGameObjects("Empty",new BitmapImage(new Uri("/img/game/emptyDebug.png", UriKind.Relative)));
         private static GuiGameObjects ItemDefault { get; set; } = new GuiGameObjects("<Select Item>",new BitmapImage(new Uri("/img/pages/leveleditor/SelectItem.png", UriKind.Relative)));
 
         public bool ItemIsPlayer = false;
@@ -142,6 +143,7 @@ namespace PushToWin.ViewModels
         #endregion
         #region CheckedModel
         public bool CBIsChecked { get; set; }
+        public bool CBIsDelete { get; set; }
         #endregion
         public event PropertyChangedEventHandler PropertyChanged;
         void PropertyChangedHandler([CallerMemberName] string property = "")

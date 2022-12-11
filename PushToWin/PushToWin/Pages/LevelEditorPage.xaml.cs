@@ -28,7 +28,7 @@ namespace PushToWin.Pages
         }
         private static LevelEditorPage Instance { get;  set; }
         public static LevelEditorModel context = new LevelEditorModel();
-        public static GuiGameMatrix GuiMatrix;
+        public static GuiGameMatrix GuiMatrix = new GuiGameMatrix(context.Size_Row,context.Size_Column);
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             DataContext = context;
@@ -70,8 +70,21 @@ namespace PushToWin.Pages
         {
             var img = (sender as Image);
             int row = Grid.GetRow(img), column= Grid.GetColumn(img);
-            if (context.ItemIsPlayer) //TODO: delete other player if laced
+            if (context.CBIsDelete) 
             {
+                img.Source = LevelEditorModel.ItemEmpty.ImgSrc;
+                GuiMatrix.Objects[row, column] = null;
+                return;
+            }
+            if (context.ItemIsPlayer)
+            {
+                Tuple<uint,uint>? playerIndex = GuiLevelEditorHelper.FindPlayerChildrenIndex(GuiMatrix.Objects);
+                if (playerIndex != null)
+                {
+                    Image i = Instance.gArea.Children[(int)GuiLevelEditorHelper.DForeGround[playerIndex]] as Image;
+                    i.Source = LevelEditorModel.ItemEmpty.ImgSrc;
+                    GuiMatrix.Objects[playerIndex.Item1, playerIndex.Item2] = null;
+                }
                 img.Source = context.ItemImgSrc;
                 GuiMatrix.Objects[row,column] = context.ItemSelected;
             }
@@ -80,7 +93,7 @@ namespace PushToWin.Pages
                 img.Source = context.ItemImgSrc;
                 GuiMatrix.Objects[row, column] = context.ItemSelected;
             }
-            else if (context.ItemIsDecor) //TODO: place item in bacground
+            else if (context.ItemIsDecor)
             {
                 GuiLevelEditorHelper.SetImgGround(Instance.gArea, (uint)row, (uint)column,context.ItemImgSrc);
                 GuiMatrix.Decor[row, column] = context.ItemSelected;

@@ -59,6 +59,11 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
+
+        <CheckBox Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" IsChecked="{Binding CBIsDelete}">
+            <TextBlock Text="Delete Item." TextWrapping="Wrap" VerticalAlignment="Center"/>
+        </CheckBox>
+
         <Label Grid.Row="0" Grid.Column="4" Content="Selected" HorizontalAlignment="Center"></Label>
         <Image  Grid.Row="1" Grid.Column="4" Source="{Binding ItemImgSrc}" ToolTip="{Binding ItemName}" ></Image>
 

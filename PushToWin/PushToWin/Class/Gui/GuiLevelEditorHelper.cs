@@ -1,4 +1,5 @@
 ﻿using PushToWin.Pages;
+using PushToWin.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -28,13 +29,13 @@ namespace PushToWin.Class.Gui
                 {
                     for (int c = 0; c < context.Size_Column; c++)
                     {
-                        LevelEditorPage.GuiMatrix.Objects[r, c] = decorSelect;
+                        LevelEditorPage.GuiMatrix.Decor[r, c] = decorSelect;
                     }
                 }
             }
         }
-        static Dictionary<Tuple<uint, uint>, uint> DGround ;
-        static Dictionary<Tuple<uint, uint>, uint> DForeGround ;
+        public static Dictionary<Tuple<uint, uint>, uint> DGround ;
+        public static Dictionary<Tuple<uint, uint>, uint> DForeGround ;
         public static void DrawAllScreen(Grid g, uint row, uint column, BitmapImage setImg)
         {
             g.Children.Clear();
@@ -48,7 +49,7 @@ namespace PushToWin.Class.Gui
                     Image ground = new Image();
                     ground.Source = setImg;
                     Image foreground = new Image();
-                    foreground.Source = new BitmapImage(new Uri("/img/game/emptyDebug.png", UriKind.Relative));
+                    foreground.Source = LevelEditorModel.ItemEmpty.ImgSrc;
                     foreground.MouseUp += LevelEditorPage.Img_MouseLeftButtonUp;
                     DGround.Add(new Tuple<uint, uint>((uint)r, (uint)c),count++);
                     DForeGround.Add(new Tuple<uint, uint>((uint)r, (uint)c),count++);
@@ -63,9 +64,20 @@ namespace PushToWin.Class.Gui
         }
         public static void SetImgGround(Grid g, uint row, uint column, BitmapImage setImg)
         {
-            //Image n = g.Children[(int)(row + column)] as Image;
             Image n = g.Children[(int)DGround[new Tuple<uint, uint>(row,column)]] as Image;
             n.Source = setImg;
-        }        
+        }
+        public static Tuple<uint,uint>? FindPlayerChildrenIndex(GuiGameObjects[,] matrix)
+        {
+            uint row = (uint)matrix.GetLength(0), column = (uint)matrix.GetLength(1);
+            for (int r = 0; r < row; r++)
+            {
+                for (int c = 0; c < column; c++)
+                {
+                    if (matrix[r, c] != null && matrix[r, c].IsPlayer) return new Tuple<uint, uint>((uint)r, (uint)c);
+                }
+            }
+            return null;
+        }
     }
 }
