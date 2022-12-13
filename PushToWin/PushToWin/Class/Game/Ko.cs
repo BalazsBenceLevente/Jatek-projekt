@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PushToWin.Class.Game
 {
-    class Kő : Objects
+    class Ko : Objects
     {
         Objects fix = new Objects(); 
 
