@@ -51,7 +51,7 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label 
+        <!--<Label 
             Content="Pause LOGO"
             Grid.Column="1" 
             Grid.Row="1" 
@@ -137,6 +137,6 @@
                     ImageSource="{Binding Img_Start}" 
                     Stretch="Uniform"/>
             </Label.Background>
-        </Label>
+        </Label>-->
     </Grid>
 </Page>

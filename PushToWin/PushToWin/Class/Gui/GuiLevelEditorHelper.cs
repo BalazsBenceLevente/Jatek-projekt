@@ -34,37 +34,50 @@ namespace PushToWin.Class.Gui
                 }
             }
         }
-        public static Dictionary<Tuple<uint, uint>, uint> DGround ;
-        public static Dictionary<Tuple<uint, uint>, uint> DForeGround ;
+        public static Dictionary<Tuple<uint, uint>, uint> D3;
+        public static Dictionary<Tuple<uint, uint>, uint> D2;
+        public static Dictionary<Tuple<uint, uint>, uint> D1;
         public static void DrawAllScreen(Grid g, uint row, uint column, BitmapImage setImg)
         {
             g.Children.Clear();
             uint count = 0;
-            DGround = new Dictionary<Tuple<uint, uint>, uint>();
-            DForeGround = new Dictionary<Tuple<uint, uint>, uint>();
+            D3 = new Dictionary<Tuple<uint, uint>, uint>();
+            D2 = new Dictionary<Tuple<uint, uint>, uint>();
+            D1 = new Dictionary<Tuple<uint, uint>, uint>();
             for (int r = 0; r < row; r++)
             {
                 for (int c = 0; c < column; c++)
                 {   
-                    Image ground = new Image();
-                    ground.Source = setImg;
-                    Image foreground = new Image();
-                    foreground.Source = LevelEditorModel.ItemEmpty.ImgSrc;
-                    foreground.MouseUp += LevelEditorPage.Img_MouseLeftButtonUp;
-                    DGround.Add(new Tuple<uint, uint>((uint)r, (uint)c),count++);
-                    DForeGround.Add(new Tuple<uint, uint>((uint)r, (uint)c),count++);
-                    Grid.SetRow(ground, r);
-                    Grid.SetColumn(ground, c);
-                    Grid.SetRow(foreground, r);
-                    Grid.SetColumn(foreground, c);
-                    g.Children.Add(ground);
-                    g.Children.Add(foreground);
+                    Image g3 = new Image();
+                    g3.Source = setImg;
+                    Image g2 = new Image();
+                    g2.Source = LevelEditorModel.ItemEmpty.ImgSrc;
+                    Image g1 = new Image();
+                    g1.Source = LevelEditorModel.ItemEmpty.ImgSrc;
+                    g1.MouseUp += LevelEditorPage.Img_MouseLeftButtonUp;
+                    D3.Add(new Tuple<uint, uint>((uint)r, (uint)c),count++);
+                    D2.Add(new Tuple<uint, uint>((uint)r, (uint)c),count++);
+                    D1.Add(new Tuple<uint, uint>((uint)r, (uint)c),count++);
+                    Grid.SetRow(g3, r);
+                    Grid.SetColumn(g3, c);
+                    Grid.SetRow(g2, r);
+                    Grid.SetColumn(g2, c);
+                    Grid.SetRow(g1, r);
+                    Grid.SetColumn(g1, c);
+                    g.Children.Add(g3);
+                    g.Children.Add(g2);
+                    g.Children.Add(g1);
                 }
             }
         }
-        public static void SetImgGround(Grid g, uint row, uint column, BitmapImage setImg)
+        public static void SetImgFloor3(Grid g, uint row, uint column, BitmapImage setImg)
         {
-            Image n = g.Children[(int)DGround[new Tuple<uint, uint>(row,column)]] as Image;
+            Image n = g.Children[(int)D3[new Tuple<uint, uint>(row,column)]] as Image;
+            n.Source = setImg;
+        }
+        public static void SetImgFloor2(Grid g, uint row, uint column, BitmapImage setImg)
+        {
+            Image n = g.Children[(int)D2[new Tuple<uint, uint>(row, column)]] as Image;
             n.Source = setImg;
         }
         public static Tuple<uint,uint>? FindPlayerChildrenIndex(GuiGameObjects[,] matrix)

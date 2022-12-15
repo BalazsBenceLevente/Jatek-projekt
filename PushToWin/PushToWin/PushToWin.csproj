@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\ka1.ttf" />
     <None Remove="img\game\character\Minusz.png" />
     <None Remove="img\game\character\Plusz.png" />
     <None Remove="img\game\character\Szorzas.png" />
@@ -53,6 +54,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fonts\ka1.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="img\game\character\Minusz.png" />
     <Resource Include="img\game\character\Plusz.png" />
     <Resource Include="img\game\character\Szorzas.png" />

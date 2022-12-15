@@ -14,10 +14,10 @@ namespace PushToWin.Class.Game
             this.x = x;
             this.y = y;
         }
-        static void Main()
-        {
+        //static void Main() // ez nem jó mert öszekeveri a már létező Main el
+        //{ és nem commitolunk nem futtatható code ot !
             
-        }
+        //}
 
     }
 }

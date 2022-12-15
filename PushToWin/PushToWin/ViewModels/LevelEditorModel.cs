@@ -13,15 +13,16 @@ namespace PushToWin.ViewModels
     public class LevelEditorModel : INotifyPropertyChanged
     {
         #region SelectModel
-        public static GuiGameObjects ItemEmpty { get; set; } = new GuiGameObjects("Empty",new BitmapImage(new Uri("/img/game/emptyDebug.png", UriKind.Relative)));
+        public static GuiGameObjects ItemEmpty { get; set; } = new GuiGameObjects("Empty",new BitmapImage(new Uri("/img/game/emptyRelease.png", UriKind.Relative)));
         private static GuiGameObjects ItemDefault { get; set; } = new GuiGameObjects("<Select Item>",new BitmapImage(new Uri("/img/pages/leveleditor/SelectItem.png", UriKind.Relative)));
 
+        public uint? Value = null;
         public bool ItemIsPlayer = false;
         public bool ItemIsObject = false;
         public bool ItemIsDecor = false;
         public string ItemName { get; set; } = ItemDefault.Name;
         public BitmapImage ItemImgSrc { get; set; } = ItemDefault.ImgSrc;
-        public GuiGameObjects ItemSelected => new GuiGameObjects(ItemName,ItemImgSrc,ItemIsPlayer,ItemIsObject,ItemIsDecor);
+        public GuiGameObjects ItemSelected => new GuiGameObjects(ItemName,ItemImgSrc,Value,ItemIsPlayer,ItemIsObject,ItemIsDecor);
 
         private GuiGameObjects _itemsPlayer = ItemDefault;
         private GuiGameObjects _itemsObject = ItemDefault;
@@ -37,6 +38,7 @@ namespace PushToWin.ViewModels
                 PropertyChangedHandler(nameof(ItemName));
                 ItemImgSrc = value.ImgSrc;
                 PropertyChangedHandler(nameof(ItemImgSrc));
+                Value = value.Value;
                 ItemIsPlayer = value.IsPlayer;
                 ItemIsObject = value.IsObject;
                 ItemIsDecor = value.IsDecor;
@@ -53,6 +55,7 @@ namespace PushToWin.ViewModels
                 PropertyChangedHandler(nameof(ItemName));
                 ItemImgSrc = value.ImgSrc;
                 PropertyChangedHandler(nameof(ItemImgSrc));
+                Value = value.Value;
                 ItemIsPlayer = value.IsPlayer;
                 ItemIsObject = value.IsObject;
                 ItemIsDecor = value.IsDecor;
@@ -69,6 +72,7 @@ namespace PushToWin.ViewModels
                 PropertyChangedHandler(nameof(ItemName));
                 ItemImgSrc = value.ImgSrc;
                 PropertyChangedHandler(nameof(ItemImgSrc));
+                Value = value.Value;
                 ItemIsPlayer = value.IsPlayer;
                 ItemIsObject = value.IsObject;
                 ItemIsDecor = value.IsDecor;

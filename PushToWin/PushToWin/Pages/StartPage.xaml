@@ -28,7 +28,7 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
-        <Label 
+        <!--<Label 
             Content="LOGO"
             Grid.Column="2" 
             Grid.Row="1" 
@@ -91,6 +91,6 @@
                     ImageSource="{Binding Img_Quit}" 
                     Stretch="Uniform"/>
             </Label.Background>
-        </Label>
+        </Label>-->
     </Grid>
 </Page>
