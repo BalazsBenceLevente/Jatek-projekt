@@ -94,7 +94,7 @@ namespace PushToWin.ViewModels
            new GuiGameObjects("Zaszlo",new BitmapImage(new Uri("/img/game/object/Zaszlo.png",UriKind.Relative)),isObject:true),
            new GuiGameObjects("Lakat",new BitmapImage(new Uri("/img/game/object/Lakat.png",UriKind.Relative)),isObject:true),
            new GuiGameObjects("Doboz",new BitmapImage(new Uri("/img/game/object/Doboz.png",UriKind.Relative)),isObject:true),
-           new GuiGameObjects("Kő",new BitmapImage(new Uri("/img/game/object/Ko.png",UriKind.Relative)),isObject:true),
+           new GuiGameObjects("Ko",new BitmapImage(new Uri("/img/game/object/Ko.png",UriKind.Relative)),isObject:true),
            new GuiGameObjects("Plusz",new BitmapImage(new Uri("/img/game/object/Plusz.png",UriKind.Relative)),isObject:true),
            new GuiGameObjects("Minusz",new BitmapImage(new Uri("/img/game/object/Minusz.png",UriKind.Relative)),isObject:true),
            new GuiGameObjects("Szorzás",new BitmapImage(new Uri("/img/game/object/Szorzas.png",UriKind.Relative)),isObject:true),

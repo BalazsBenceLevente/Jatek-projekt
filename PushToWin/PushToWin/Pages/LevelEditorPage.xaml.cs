@@ -116,9 +116,11 @@ namespace PushToWin.Pages
         private static void Img_MouseIsObject(Image img, int row, int column) // box szám beir 
         {
             string valueSet = "";
-            if(context.ItemName == "Doboz") //ha doboz
+            if(context.ItemName == "Doboz" || context.ItemName == "Ko" || context.ItemName == "Lakat") //ha doboz
             {
-                GuiInputDialogBox inputDialog = new GuiInputDialogBox("Please give a number between (0-9):","Number Input",0,9,true);
+                string a = context.ItemName == "Lakat" ? "9" : "";
+                int b = context.ItemName == "Lakat" ? 99 : 9;
+                GuiInputDialogBox inputDialog = new GuiInputDialogBox($"Please give a number between (0-9{a}):","Number Input",0,b,true);
                 if (inputDialog.ShowDialog() == false) return;
                 context.Value = (uint)inputDialog.Answer;
                 valueSet = inputDialog.Answer.ToString();
