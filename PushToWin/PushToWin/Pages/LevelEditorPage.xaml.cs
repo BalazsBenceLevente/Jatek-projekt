@@ -95,7 +95,8 @@ namespace PushToWin.Pages
         private static void Img_MouseDelete(Image img,int row,int column) // done
         {
             img.Source = LevelEditorModel.ItemEmpty.ImgSrc;
-            GuiLevelEditorHelper.SetImgFloor2(Instance.gArea, (uint)row, (uint)column, LevelEditorModel.ItemEmpty.ImgSrc);
+            GuiLevelEditorHelper.SetImgFloor3(Instance.gArea, (uint)row, (uint)column, LevelEditorModel.ItemEmpty.ImgSrc);
+            GuiLevelEditorHelper.SetTextFloor2(Instance.gArea, (uint)row, (uint)column, "");
             GuiMatrix.Objects[row, column] = null;
         }
         private static void Img_MouseIsPlayer(Image img, int row, int column) //done
@@ -108,23 +109,27 @@ namespace PushToWin.Pages
                 GuiMatrix.Objects[playerIndex.Item1, playerIndex.Item2] = null;
             }
             img.Source = context.ItemImgSrc;
-            GuiLevelEditorHelper.SetImgFloor2(Instance.gArea, (uint)row, (uint)column, LevelEditorModel.ItemEmpty.ImgSrc);
+            GuiLevelEditorHelper.SetImgFloor3(Instance.gArea, (uint)row, (uint)column, LevelEditorModel.ItemEmpty.ImgSrc);
+            GuiLevelEditorHelper.SetTextFloor2(Instance.gArea, (uint)row, (uint)column, "");
             GuiMatrix.Objects[row, column] = context.ItemSelected;
         }
         private static void Img_MouseIsObject(Image img, int row, int column) // box szám beir 
         {
+            string valueSet = "";
             if(context.ItemName == "Doboz") //ha doboz
             {
-                GuiInputDialogBox inputDialog = new GuiInputDialogBox("Please give a number between (0-99):","Number Input",0,99,true);
+                GuiInputDialogBox inputDialog = new GuiInputDialogBox("Please give a number between (0-9):","Number Input",0,9,true);
                 if (inputDialog.ShowDialog() == false) return;
                 context.Value = (uint)inputDialog.Answer;
+                valueSet = inputDialog.Answer.ToString();
             }
-            GuiLevelEditorHelper.SetImgFloor2(Instance.gArea, (uint)row, (uint)column, context.ItemImgSrc);
+            GuiLevelEditorHelper.SetImgFloor3(Instance.gArea, (uint)row, (uint)column, context.ItemImgSrc);
+            GuiLevelEditorHelper.SetTextFloor2(Instance.gArea, (uint)row, (uint)column, valueSet);
             GuiMatrix.Objects[row, column] = context.ItemSelected;
         }
         private static void Img_MouseItemIsDecor(Image img, int row, int column) //okés
         {
-            GuiLevelEditorHelper.SetImgFloor3(Instance.gArea, (uint)row, (uint)column, context.ItemImgSrc);
+            GuiLevelEditorHelper.SetImgFloor4(Instance.gArea, (uint)row, (uint)column, context.ItemImgSrc);
             GuiMatrix.Decor[row, column] = context.ItemSelected;
         }
     }
