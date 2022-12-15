@@ -1,5 +1,6 @@
 ﻿using PushToWin.Class.Gui;
 using PushToWin.ViewModels;
+using PushToWin.Windows;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,35 +27,14 @@ namespace PushToWin.Pages
         {
             InitializeComponent();
         }
-
-        LevelEditorModel context = new LevelEditorModel();
-        GuiGameMatrix GuiMatrix;
+        private static LevelEditorPage Instance { get;  set; }
+        public static LevelEditorModel context = new LevelEditorModel();
+        public static GuiGameMatrix GuiMatrix = new GuiGameMatrix(context.Size_Row,context.Size_Column);
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             DataContext = context;
-            Dispatcher.BeginInvoke(new Action(() => InitGrid(CB_Decor.Items[2] as GuiGameObjects)), DispatcherPriority.Loaded, null);
-        }
-        private void InitGrid(GuiGameObjects decorSelect)
-        {
-            if (decorSelect.IsDecor)
-            {
-                //Clear
-                gArea.Children.Clear();
-                //Make Grid
-                GuiHelper.MakeColumnDefinition(gArea,context.Size_X);
-                GuiHelper.MakeRowDefinition(gArea,context.Size_Y);
-                //Set Gird
-                GuiHelper.DrawAllScreen(gArea, context.Size_X, context.Size_Y, decorSelect.ImgSrc);
-                //Set Matrix
-                GuiMatrix = new GuiGameMatrix(context.Size_X,context.Size_Y);
-                for (int i = 0; i < context.Size_X; i++)
-                {
-                    for (int a = 0; a < context.Size_Y; a++)
-                    {
-                        GuiMatrix.Objects[i, a] = decorSelect;
-                    }
-                }
-            }
+            Instance = this;
+            Dispatcher.BeginInvoke(new Action(() => GuiLevelEditorHelper.InitGrid(gArea,CB_Decor.Items[4] as GuiGameObjects)), DispatcherPriority.Loaded, null);
         }
 
         private Regex _regex = new Regex("[^0-9]+");
@@ -62,23 +42,90 @@ namespace PushToWin.Pages
         {
             e.Handled = _regex.IsMatch(e.Text);
         }
-
-        private void Set_Click(object sender, RoutedEventArgs e)
-        {
-            string txt = context.Size_X >= 50 || context.Size_Y >= 50 ? "Too large playing field can efect the application preformance!" : "";
-            if (CB_Decor.SelectedIndex == -1 || !(CB_Decor.Items[CB_Decor.SelectedIndex] as GuiGameObjects).IsDecor)
-            {
-                MessageBox.Show($"No Decor selected!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            if (context.CBIsChecked || MessageBox.Show($"Are you sure you want to resize? (It will delete everything!)\n{txt}", "Resize?", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
-            {
-                InitGrid(CB_Decor.SelectedItem as GuiGameObjects);
-            }
-        }
         private void ComboBox_DropDownOpened(object sender, EventArgs e)
         {
             (sender as ComboBox).SelectedIndex = 0;
+        }
+        private void Set_Click(object sender, RoutedEventArgs e)
+        {
+            if (CB_Decor.SelectedIndex == -1 || !(CB_Decor.Items[CB_Decor.SelectedIndex] as GuiGameObjects).IsDecor)
+            {
+                MessageBox.Show($"No Ground selected!", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (context.CBIsChecked) {
+                GuiLevelEditorHelper.InitGrid(gArea,CB_Decor.SelectedItem as GuiGameObjects);
+                return;
+            }
+            if (((context.Size_Column >= 50) || (context.Size_Row >= 50)) && MessageBox.Show($"Too large playing field can efect the application preformance! Are you sure you want to continue ?", "Too Large!", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+            {
+                return;
+            }
+            if (MessageBox.Show($"Are you sure you want to resize? (It will delete everything!)", "Resize?", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+            {
+                return;
+            }
+            GuiLevelEditorHelper.InitGrid(gArea,CB_Decor.SelectedItem as GuiGameObjects);
+        }
+        public static void Img_MouseLeftButtonUp(object sender, MouseButtonEventArgs e) // TODO: átdolgoz, doboz Masegebox szám (0-99)
+        {
+            Image img = (sender as Image);
+            int row = Grid.GetRow(img), column= Grid.GetColumn(img);
+            if (context.CBIsDelete) 
+            {
+                Img_MouseDelete(img,row,column);               
+                return;
+            }
+            if (context.ItemIsPlayer)
+            {
+                Img_MouseIsPlayer(img,row,column);
+                return;
+            }
+            else if (context.ItemIsObject)
+            {
+                Img_MouseIsObject(img, row, column);
+                return;
+            }
+            else if (context.ItemIsDecor)
+            {
+                Img_MouseItemIsDecor(img, row, column);
+                return;
+            }
+        }
+        private static void Img_MouseDelete(Image img,int row,int column) // done
+        {
+            img.Source = LevelEditorModel.ItemEmpty.ImgSrc;
+            GuiLevelEditorHelper.SetImgFloor2(Instance.gArea, (uint)row, (uint)column, LevelEditorModel.ItemEmpty.ImgSrc);
+            GuiMatrix.Objects[row, column] = null;
+        }
+        private static void Img_MouseIsPlayer(Image img, int row, int column) //done
+        {
+            Tuple<uint, uint>? playerIndex = GuiLevelEditorHelper.FindPlayerChildrenIndex(GuiMatrix.Objects);
+            if (playerIndex != null)
+            {
+                Image i = Instance.gArea.Children[(int)GuiLevelEditorHelper.D1[playerIndex]] as Image;
+                i.Source = LevelEditorModel.ItemEmpty.ImgSrc;
+                GuiMatrix.Objects[playerIndex.Item1, playerIndex.Item2] = null;
+            }
+            img.Source = context.ItemImgSrc;
+            GuiLevelEditorHelper.SetImgFloor2(Instance.gArea, (uint)row, (uint)column, LevelEditorModel.ItemEmpty.ImgSrc);
+            GuiMatrix.Objects[row, column] = context.ItemSelected;
+        }
+        private static void Img_MouseIsObject(Image img, int row, int column) // box szám beir 
+        {
+            if(context.ItemName == "Doboz") //ha doboz
+            {
+                GuiInputDialogBox inputDialog = new GuiInputDialogBox("Please give a number between (0-99):","Number Input",0,99,true);
+                if (inputDialog.ShowDialog() == false) return; // fojtatás, return használsznál ha cancel akkor ne csináljon semmit
+                //és ha jó akkor uj A VALUE t állitsa :: context.vlaue = 15 
+            }
+            GuiLevelEditorHelper.SetImgFloor2(Instance.gArea, (uint)row, (uint)column, context.ItemImgSrc);
+            GuiMatrix.Objects[row, column] = context.ItemSelected;
+        }
+        private static void Img_MouseItemIsDecor(Image img, int row, int column) //okés
+        {
+            GuiLevelEditorHelper.SetImgFloor3(Instance.gArea, (uint)row, (uint)column, context.ItemImgSrc);
+            GuiMatrix.Decor[row, column] = context.ItemSelected;
         }
     }
 }

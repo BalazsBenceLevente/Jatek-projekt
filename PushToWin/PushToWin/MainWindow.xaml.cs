@@ -26,6 +26,34 @@ namespace PushToWin
         public MainWindow()
         {
             InitializeComponent();
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                switch (context.VisibilityActiveName)
+                {
+                    case "LevelSelector": //Back to Start
+                        context.MakeVisible("Start");
+                        break;
+                    case "LevelEditorSelect": //Back to Start
+                        context.MakeVisible("Start");
+                        break;
+                    case "LevelEditor": //Level Editor Esc
+                        context.MakeVisible("LevelEditorEsc");
+                        break;
+                    case "LevelEditorEsc": // To level editor
+                        context.MakeVisible("LevelEditor");
+                        break;
+                    case "GameWindow": //Game Window Esc
+                        context.MakeVisible("GameWindowEsc");
+                        break;
+                    case "GameWindowEsc": // To Game window
+                        context.MakeVisible("GameWindow");
+                        break;
+                }
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

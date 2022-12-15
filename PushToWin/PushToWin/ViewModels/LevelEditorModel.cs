@@ -13,15 +13,20 @@ namespace PushToWin.ViewModels
     public class LevelEditorModel : INotifyPropertyChanged
     {
         #region SelectModel
+        public static GuiGameObjects ItemEmpty { get; set; } = new GuiGameObjects("Empty",new BitmapImage(new Uri("/img/game/emptyRelease.png", UriKind.Relative)));
         private static GuiGameObjects ItemDefault { get; set; } = new GuiGameObjects("<Select Item>",new BitmapImage(new Uri("/img/pages/leveleditor/SelectItem.png", UriKind.Relative)));
+
+        public uint? Value = null;
+        public bool ItemIsPlayer = false;
+        public bool ItemIsObject = false;
+        public bool ItemIsDecor = false;
         public string ItemName { get; set; } = ItemDefault.Name;
         public BitmapImage ItemImgSrc { get; set; } = ItemDefault.ImgSrc;
+        public GuiGameObjects ItemSelected => new GuiGameObjects(ItemName,ItemImgSrc,Value,ItemIsPlayer,ItemIsObject,ItemIsDecor);
 
-        public GuiGameObjects ItemSelected => new GuiGameObjects(ItemName,ItemImgSrc);
-
-        private GuiGameObjects _itemsPlayer;
-        private GuiGameObjects _itemsObject;
-        private GuiGameObjects _itemsDecor;
+        private GuiGameObjects _itemsPlayer = ItemDefault;
+        private GuiGameObjects _itemsObject = ItemDefault;
+        private GuiGameObjects _itemsDecor = ItemDefault;
         public GuiGameObjects ItemsSelectPlayer
         {
             get { return _itemsPlayer; }
@@ -33,6 +38,10 @@ namespace PushToWin.ViewModels
                 PropertyChangedHandler(nameof(ItemName));
                 ItemImgSrc = value.ImgSrc;
                 PropertyChangedHandler(nameof(ItemImgSrc));
+                Value = value.Value;
+                ItemIsPlayer = value.IsPlayer;
+                ItemIsObject = value.IsObject;
+                ItemIsDecor = value.IsDecor;
             }
         }
         public GuiGameObjects ItemsSelectObject
@@ -46,6 +55,10 @@ namespace PushToWin.ViewModels
                 PropertyChangedHandler(nameof(ItemName));
                 ItemImgSrc = value.ImgSrc;
                 PropertyChangedHandler(nameof(ItemImgSrc));
+                Value = value.Value;
+                ItemIsPlayer = value.IsPlayer;
+                ItemIsObject = value.IsObject;
+                ItemIsDecor = value.IsDecor;
             }
         }
         public GuiGameObjects ItemsSelectDecor
@@ -59,6 +72,10 @@ namespace PushToWin.ViewModels
                 PropertyChangedHandler(nameof(ItemName));
                 ItemImgSrc = value.ImgSrc;
                 PropertyChangedHandler(nameof(ItemImgSrc));
+                Value = value.Value;
+                ItemIsPlayer = value.IsPlayer;
+                ItemIsObject = value.IsObject;
+                ItemIsDecor = value.IsDecor;
             }
         }
         private static ObservableCollection<GuiGameObjects> _player = new ObservableCollection<GuiGameObjects>()
@@ -88,7 +105,9 @@ namespace PushToWin.ViewModels
         ObservableCollection<GuiGameObjects> _decor = new ObservableCollection<GuiGameObjects>()
         {
             ItemDefault,
-            new GuiGameObjects("Fal",new BitmapImage(new Uri("/img/game/decor/Fal.png",UriKind.Relative)),isDecor:true),
+            new GuiGameObjects("Fal1",new BitmapImage(new Uri("/img/game/decor/Fal1.png",UriKind.Relative)),isDecor:true),
+            new GuiGameObjects("Fal2",new BitmapImage(new Uri("/img/game/decor/Fal2.png",UriKind.Relative)),isDecor:true),
+            new GuiGameObjects("Fal3",new BitmapImage(new Uri("/img/game/decor/Fal3.png",UriKind.Relative)),isDecor:true),
             new GuiGameObjects("Talaj1",new BitmapImage(new Uri("/img/game/decor/Talaj1.png",UriKind.Relative)),isDecor:true),
             new GuiGameObjects("Talaj2",new BitmapImage(new Uri("/img/game/decor/Talaj2.png",UriKind.Relative)),isDecor:true),
             new GuiGameObjects("Talaj3",new BitmapImage(new Uri("/img/game/decor/Talaj3.png",UriKind.Relative)),isDecor:true),
@@ -107,27 +126,28 @@ namespace PushToWin.ViewModels
         public ObservableCollection<GuiGameObjects> ItemsDecor => _decor;
         #endregion
         #region SizeModel
-        private uint size_X = 22;
-        public  uint Size_X
+        private uint size_Column = 22;
+        public  uint Size_Column
         {
-            get { return size_X; }
+            get { return size_Column; }
             set { 
-                size_X = value == 0 ? 1 : value;
-                PropertyChangedHandler(nameof(size_X));
+                size_Column = value == 0 ? 1 : value;
+                PropertyChangedHandler(nameof(size_Column));
             }
         }
-        private uint size_Y = 10;
-        public uint Size_Y
+        private uint size_Row = 10;
+        public uint Size_Row
         {
-            get { return size_Y; }
+            get { return size_Row; }
             set {
-                size_Y = value == 0? 1: value;
-                PropertyChangedHandler(nameof(size_Y));
+                size_Row = value == 0? 1: value;
+                PropertyChangedHandler(nameof(size_Row));
             }
         }
         #endregion
         #region CheckedModel
         public bool CBIsChecked { get; set; }
+        public bool CBIsDelete { get; set; }
         #endregion
         public event PropertyChangedEventHandler PropertyChanged;
         void PropertyChangedHandler([CallerMemberName] string property = "")

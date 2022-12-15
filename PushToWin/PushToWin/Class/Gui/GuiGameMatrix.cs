@@ -9,10 +9,10 @@ namespace PushToWin.Class.Gui
         public GuiGameObjects[,] Objects { get; set; }
         public GuiGameObjects[,] Decor { get; set; }
 
-        public GuiGameMatrix(uint x,uint y)
+        public GuiGameMatrix(uint row, uint column)
         {
-            Objects = new GuiGameObjects[x,y];
-            Decor = new GuiGameObjects[x,y];
+            Objects = new GuiGameObjects[row,column];
+            Decor = new GuiGameObjects[row,column];
         }
     }
 }

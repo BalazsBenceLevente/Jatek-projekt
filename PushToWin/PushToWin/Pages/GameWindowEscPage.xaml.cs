@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace PushToWin.Pages
 {
     /// <summary>
-    /// Interaction logic for PausePage.xaml
+    /// Interaction logic for GameWindowEscPage.xaml
     /// </summary>
-    public partial class PausePage : Page
+    public partial class GameWindowEscPage : Page
     {
-        public PausePage()
+        public GameWindowEscPage()
         {
             InitializeComponent();
         }

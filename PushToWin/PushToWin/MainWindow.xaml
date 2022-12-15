@@ -9,11 +9,12 @@
     <Viewbox Stretch="Uniform">
         <Grid Background="White" Height="457" Width="858">
             <Frame Name="PageStart" Source="/Pages/StartPage.xaml" Visibility="{Binding Visibility_Start}"/>
-            <Frame Name="PagePause" Source="/Pages/PausePage.xaml" Visibility="{Binding Visibility_Pause}"/>
             <Frame Name="PageLevelSelector" Source="/Pages/LevelSelectorPage.xaml" Visibility="{Binding Visibility_LevelSelector}"/>
             <Frame Name="PageLevelEditorSelect" Source="/Pages/LevelEditorSelectPage.xaml" Visibility="{Binding Visibility_LevelEditorSelect}"/>
             <Frame Name="PageLevelEditor" Source="/Pages/LevelEditorPage.xaml" Visibility="{Binding Visibility_LevelEditor}"/>
-            <Frame Name="PageGameWindow" Source="/Pages/GameWindowPage.xaml" Visibility="{Binding Visibility_LevelGameWindow}"/>
+            <Frame Name="PageLevelEditorEsc" Source="/Pages/LevelEditorEscPage.xaml" Visibility="{Binding Visibility_LevelEditorEsc}"/>
+            <Frame Name="PageGameWindow" Source="/Pages/GameWindowPage.xaml" Visibility="{Binding Visibility_GameWindow}"/>
+            <Frame Name="PageGameWindowEsc" Source="/Pages/GameWindowEscPage.xaml" Visibility="{Binding Visibility_GameWindowEsc}"/>
         </Grid>
     </Viewbox>
 </Window>
