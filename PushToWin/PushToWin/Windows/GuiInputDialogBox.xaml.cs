@@ -20,6 +20,7 @@ namespace PushToWin.Windows
     {
         int from, to;
         bool regexNumbers;
+        int value;
         public GuiInputDialogBox()
         {
             InitializeComponent();
@@ -45,9 +46,9 @@ namespace PushToWin.Windows
         }
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
-            int a;
-            bool b = int.TryParse(Answer, out a);
-            if (b && (a >=from &&  a<=to))
+            
+            bool b = int.TryParse(tbText.Text, out value);
+            if (b && (value >=from &&  value<=to))
             {
                 this.DialogResult = true;
             }
@@ -56,9 +57,9 @@ namespace PushToWin.Windows
                 laQuestion.Foreground = Brushes.Red;
             }
         }
-        public string Answer
+        public int Answer
         {
-            get { return tbText.Text; }
+            get { return value; }
         }
     }
 }

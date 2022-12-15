@@ -116,8 +116,8 @@ namespace PushToWin.Pages
             if(context.ItemName == "Doboz") //ha doboz
             {
                 GuiInputDialogBox inputDialog = new GuiInputDialogBox("Please give a number between (0-99):","Number Input",0,99,true);
-                if (inputDialog.ShowDialog() == false) return; // fojtatás, return használsznál ha cancel akkor ne csináljon semmit
-                //és ha jó akkor uj A VALUE t állitsa :: context.vlaue = 15 
+                if (inputDialog.ShowDialog() == false) return;
+                context.Value = (uint)inputDialog.Answer;
             }
             GuiLevelEditorHelper.SetImgFloor2(Instance.gArea, (uint)row, (uint)column, context.ItemImgSrc);
             GuiMatrix.Objects[row, column] = context.ItemSelected;

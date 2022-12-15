@@ -26,9 +26,9 @@ namespace PushToWin
         public MainWindow()
         {
             InitializeComponent();
-            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+            this.PreviewKeyDown += new KeyEventHandler(HandleKeyboard);
         }
-        private void HandleEsc(object sender, KeyEventArgs e)
+        private void HandleKeyboard(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape)
             {
