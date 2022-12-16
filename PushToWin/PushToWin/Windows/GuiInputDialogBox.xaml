@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PushToWin.Windows"
         mc:Ignorable="d"
-        Title="" Height="125" Width="320" ContentRendered="Window_ContentRendered" MaxHeight="125" MaxWidth="320" MinHeight="125" MinWidth="320">
+        Title="" Height="125" Width="320" ContentRendered="Window_ContentRendered" MaxHeight="125" MaxWidth="320" MinHeight="125" MinWidth="320" WindowStartupLocation="CenterScreen">
     <StackPanel Margin="5,0,5,0">
 
         <Label Name="laQuestion">Test</Label>

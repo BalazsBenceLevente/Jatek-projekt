@@ -44,12 +44,13 @@
     <None Remove="img\game\object\Plusz.png" />
     <None Remove="img\game\object\Szorzas.png" />
     <None Remove="img\game\object\Zaszlo.png" />
+    <None Remove="img\pages\buttons\Button1.png" />
+    <None Remove="img\pages\buttons\Button2.png" />
+    <None Remove="img\pages\buttons\Button3.png" />
+    <None Remove="img\pages\buttons\ButtonPressed1.png" />
+    <None Remove="img\pages\buttons\ButtonPressed2.png" />
+    <None Remove="img\pages\buttons\ButtonPressed3.png" />
     <None Remove="img\pages\leveleditor\SelectItem.png" />
-    <None Remove="img\pages\start\LevelSelector.png" />
-    <None Remove="img\pages\start\Logo.png" />
-    <None Remove="img\pages\start\MapEditor.png" />
-    <None Remove="img\pages\start\Quit.png" />
-    <None Remove="img\pages\start\Start.png" />
     <None Remove="kep.jpg" />
   </ItemGroup>
 
@@ -85,12 +86,25 @@
     <Resource Include="img\game\object\Plusz.png" />
     <Resource Include="img\game\object\Szorzas.png" />
     <Resource Include="img\game\object\Zaszlo.png" />
+    <Resource Include="img\pages\buttons\Button1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\pages\buttons\Button2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\pages\buttons\Button3.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\pages\buttons\ButtonPressed1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\pages\buttons\ButtonPressed2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\pages\buttons\ButtonPressed3.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="img\pages\leveleditor\SelectItem.png" />
-    <Resource Include="img\pages\start\LevelSelector.png" />
-    <Resource Include="img\pages\start\Logo.png" />
-    <Resource Include="img\pages\start\MapEditor.png" />
-    <Resource Include="img\pages\start\Quit.png" />
-    <Resource Include="img\pages\start\Start.png" />
   </ItemGroup>
 
 </Project>

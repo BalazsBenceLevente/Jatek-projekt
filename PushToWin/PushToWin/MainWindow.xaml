@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PushToWin"
         mc:Ignorable="d"
-        Title="MainWindow" Height="585" Width="1040" Background="Black" MinHeight="450" MinWidth="800" Loaded="Window_Loaded">
+        Title="MainWindow" Height="585" Width="1040" Background="Black" MinHeight="450" MinWidth="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Viewbox Stretch="Uniform">
         <Grid Background="White" Height="457" Width="858">
             <Frame Name="PageStart" Source="/Pages/StartPage.xaml" Visibility="{Binding Visibility_Start}"/>

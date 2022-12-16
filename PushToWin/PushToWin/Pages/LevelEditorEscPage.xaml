@@ -9,31 +9,6 @@
       Title="LevelEditorEscPage">
 
     <Grid>
-        <!--<Label 
-            Content="LOGO"
-            Grid.Column="2" 
-            Grid.Row="1" 
-            Grid.ColumnSpan="4" 
-            Grid.RowSpan="2" >
-            <Label.Background>
-                <ImageBrush 
-                    ImageSource="/img/pages/start/Logo.png" 
-                    Stretch="Uniform"/>
-            </Label.Background>
-        </Label>
-        <Label
-            Content="START"
-            Name="laGameWindow"
-            Grid.Column="3" 
-            Grid.Row="3" 
-            Grid.ColumnSpan="2" 
-            Margin="30,5,30,5"   >
-            <Label.Background>
-                <ImageBrush 
-                    ImageSource="{Binding Img_Start}" 
-                    Stretch="Uniform"/>
-            </Label.Background>
-        </Label>-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -51,92 +26,8 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
-        <!--<Label 
-            Content="Pause LOGO"
-            Grid.Column="1" 
-            Grid.Row="1" 
-            Grid.ColumnSpan="2">
-            <Label.Background>
-                <ImageBrush 
-                    ImageSource="/img/pages/start/Logo.png" 
-                    Stretch="Uniform"/>
-            </Label.Background>
-        </Label>
-        <Label
-            Content="Reset"
-            Name="laReset"
-            Grid.Column="1" 
-            Grid.Row="2" 
-            Grid.ColumnSpan="2" 
-            Margin="30,5,30,5"   >
-            <Label.Background>
-                <ImageBrush 
-                    ImageSource="{Binding Img_Start}" 
-                    Stretch="Uniform"/>
-            </Label.Background>
-        </Label>
-        <Label
-            Content="Main Menu"
-            Name="laMainMenu"
-            Grid.Column="1" 
-            Grid.Row="3" 
-            Grid.ColumnSpan="2" 
-            Margin="30,5,30,5"   >
-            <Label.Background>
-                <ImageBrush 
-                    ImageSource="{Binding Img_Start}" 
-                    Stretch="Uniform"/>
-            </Label.Background>
-        </Label>
-        <Label
-            Content="Quit "
-            Name="laQuit"
-            Grid.Column="1" 
-            Grid.Row="4" 
-            Grid.ColumnSpan="2" 
-            Margin="30,5,30,5"   >
-            <Label.Background>
-                <ImageBrush 
-                    ImageSource="{Binding Img_Start}" 
-                    Stretch="Uniform"/>
-            </Label.Background>
-        </Label>
-        <Label 
-            Content="LevelEditor LOGO"
-            Grid.Column="4" 
-            Grid.Row="1" 
-            Grid.ColumnSpan="2">
-            <Label.Background>
-                <ImageBrush 
-                    ImageSource="/img/pages/start/Logo.png" 
-                    Stretch="Uniform"/>
-            </Label.Background>
-        </Label>
-        <Label
-            Content="Save"
-            Name="laSave"
-            Grid.Column="4" 
-            Grid.Row="2" 
-            Grid.ColumnSpan="2" 
-            Margin="30,5,30,5"   >
-            <Label.Background>
-                <ImageBrush 
-                    ImageSource="{Binding Img_Start}" 
-                    Stretch="Uniform"/>
-            </Label.Background>
-        </Label>
-        <Label
-            Content="Test"
-            Name="laTest"
-            Grid.Column="4" 
-            Grid.Row="3" 
-            Grid.ColumnSpan="2" 
-            Margin="30,5,30,5"   >
-            <Label.Background>
-                <ImageBrush 
-                    ImageSource="{Binding Img_Start}" 
-                    Stretch="Uniform"/>
-            </Label.Background>
-        </Label>-->
+        <TextBlock>
+        </TextBlock>
+            <!--<Image Source=""></Image>-->
     </Grid>
 </Page>
