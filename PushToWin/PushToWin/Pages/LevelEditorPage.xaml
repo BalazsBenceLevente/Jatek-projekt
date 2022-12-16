@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:PushToWin.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="LevelEditorPage" Loaded="Page_Loaded">
+      Title="LevelEditorPage" Loaded="Page_Loaded" Name="p">
 
     <Grid>
         <Grid.ColumnDefinitions>

@@ -60,9 +60,8 @@ namespace PushToWin.Class.Gui
                     g2.VerticalContentAlignment = VerticalAlignment.Center;
                     g2.Background = Brushes.Transparent;
                     g2.BorderThickness = new Thickness(0);
-                    g2.Margin = new Thickness(0,0,20,0); // DECIDE
-                    g2.FontSize = 250; // DECIDE 
-                    //g2.Text = "99"; // TEST REMOVE !
+                    g2.Margin = new Thickness(0,0,20,0);
+                    g2.FontSize = 250;
                     Image g1 = new Image();
                     g1.Source = LevelEditorModel.ItemEmpty.ImgSrc;
                     g1.MouseUp += LevelEditorPage.Img_MouseLeftButtonUp;

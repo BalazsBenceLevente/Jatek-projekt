@@ -26,6 +26,8 @@ namespace PushToWin.Pages
         public LevelEditorPage()
         {
             InitializeComponent();
+            BrushConverter bc = new BrushConverter();
+            p.Background = (Brush)bc.ConvertFrom("#476365");
         }
         private static LevelEditorPage Instance { get;  set; }
         public static LevelEditorModel context = new LevelEditorModel();

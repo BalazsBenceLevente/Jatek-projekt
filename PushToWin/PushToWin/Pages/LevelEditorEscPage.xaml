@@ -6,9 +6,9 @@
       xmlns:local="clr-namespace:PushToWin.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="LevelEditorEscPage">
-
-    <Grid>
+      Title="LevelEditorEscPage" FontFamily="../Fonts/#Karmatic Arcade" Name="p">
+    
+    <Grid Name="g">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -26,8 +26,125 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock>
-        </TextBlock>
-            <!--<Image Source=""></Image>-->
+        
+        <Border Margin="2" 
+                Grid.Row="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                BorderBrush="Black"
+                BorderThickness="5">
+            <Label Name="l1"
+                   HorizontalContentAlignment="Center" 
+                   VerticalContentAlignment="Center"   
+                   FontSize="24">
+                Pause
+            </Label>
+        </Border>
+        <Border Margin="2" 
+                Grid.Row="1"
+                Grid.Column="4"
+                Grid.ColumnSpan="2"
+                BorderBrush="Black"
+                BorderThickness="5">
+            <Label Name="l2"
+                   HorizontalContentAlignment="Center" 
+                   VerticalContentAlignment="Center"   
+                   FontSize="24">
+                Level Editor
+            </Label>
+        </Border>
+        
+        <!---->
+        <Image 
+               Margin="50,0,50,0"
+               Grid.Row="2" 
+               Grid.Column="1" 
+               Grid.ColumnSpan="2" 
+               Source="{Binding Reset}"
+               VerticalAlignment="Center" HorizontalAlignment="Center"
+               Height="120" Stretch="Fill"
+        />
+        <Label Margin="50,0,50,0"
+               Grid.Row="2" 
+               Grid.Column="1" 
+               Grid.ColumnSpan="2" 
+               Background="Transparent" 
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" Name="Reset"
+               >Reset</Label>
+        <!---->
+        <Image 
+               Margin="50,0,50,0"
+               Grid.Row="3" 
+               Grid.Column="1" 
+               Grid.ColumnSpan="2" 
+               Source="{Binding MainMenu}"
+               VerticalAlignment="Center" HorizontalAlignment="Center"
+               Height="120" Stretch="Fill"
+        />
+        <Label Margin="50,0,50,0"
+               Grid.Row="3" 
+               Grid.Column="1" 
+               Grid.ColumnSpan="2" 
+               Background="Transparent" 
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" Name="MainMenu"
+               >Main menu</Label>
+        <!---->
+        <Image 
+               Margin="50,0,50,0"
+               Grid.Row="4" 
+               Grid.Column="1" 
+               Grid.ColumnSpan="2" 
+               Source="{Binding QuitGame}"
+               VerticalAlignment="Center" HorizontalAlignment="Center"
+               Height="120" Stretch="Fill"
+        />
+        <Label Margin="50,0,50,0"
+               Grid.Row="4" 
+               Grid.Column="1" 
+               Grid.ColumnSpan="2" 
+               Background="Transparent" 
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" Name="QuitGame"
+               >Quit game</Label>
+        <!---->
+        <!---->
+        <Image 
+               Margin="50,0,50,0"
+               Grid.Row="2" 
+               Grid.Column="4" 
+               Grid.ColumnSpan="2" 
+               Source="{Binding SaveLevel}"
+               VerticalAlignment="Center" HorizontalAlignment="Center"
+               Height="120" Stretch="Fill"
+        />
+        <Label Margin="50,0,50,0"
+               Grid.Row="2" 
+               Grid.Column="4" 
+               Grid.ColumnSpan="2" 
+               Background="Transparent" 
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" Name="SaveLevel"
+               >Save Level</Label>
+        <!---->
+        <Image 
+               Margin="50,0,50,0"
+               Grid.Row="3" 
+               Grid.Column="4" 
+               Grid.ColumnSpan="2" 
+               Source="{Binding TestLevel}"
+               VerticalAlignment="Center" HorizontalAlignment="Center"
+               Height="120" Stretch="Fill"
+        />
+        <Label Margin="50,0,50,0"
+               Grid.Row="3" 
+               Grid.Column="4" 
+               Grid.ColumnSpan="2" 
+               Background="Transparent" 
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave" Name="TestLevel"
+               >Test Level</Label>
+        <!---->
     </Grid>
 </Page>

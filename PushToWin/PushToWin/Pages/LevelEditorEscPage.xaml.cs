@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PushToWin.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +19,25 @@ namespace PushToWin.Pages
     /// </summary>
     public partial class LevelEditorEscPage : Page
     {
+        LevelEditorEscModel context = new LevelEditorEscModel();
         public LevelEditorEscPage()
         {
             InitializeComponent();
+            BrushConverter bc = new BrushConverter();
+            p.Background = (Brush)bc.ConvertFrom("#193C3E");
+            l1.Background = (Brush)bc.ConvertFrom("#476365");
+            l2.Background = (Brush)bc.ConvertFrom("#476365");
+            this.DataContext = context;
+        }
+
+        private void Label_MouseEnter(object sender, MouseEventArgs e)
+        {
+            context.ImgSwitch((sender as Label).Name);
+        }
+
+        private void Label_MouseLeave(object sender, MouseEventArgs e)
+        {
+            context.ImgSwitch((sender as Label).Name);
         }
     }
 }

@@ -38,11 +38,11 @@ namespace PushToWin.Pages
         //    context.ImgSwitch((sender as Label).Name.Substring(2));
         //}
 
-        private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            var send = (sender as Label).Name;
-            if (send == "laQuit") Application.Current.Shutdown();
-            MainWindow.context.MakeVisible(send.Substring(2));
-        }
+        //private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    var send = (sender as Label).Name;
+        //    if (send == "laQuit") Application.Current.Shutdown();
+        //    MainWindow.context.MakeVisible(send.Substring(2));
+        //}
     }
 }
