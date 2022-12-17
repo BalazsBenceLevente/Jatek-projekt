@@ -9,6 +9,7 @@ namespace PushToWin.ViewModels
 {
     public class LevelEditorEscModel : INotifyPropertyChanged
     {
+        #region ImgChangeModel
         private string 
             reset = "Button1.png",
             mainMenu = "Button1.png",
@@ -96,6 +97,7 @@ namespace PushToWin.ViewModels
                     break;
             }
         }
+        #endregion
         public event PropertyChangedEventHandler PropertyChanged;
         void PropertyChangedHandler([CallerMemberName] string property = "")
         {

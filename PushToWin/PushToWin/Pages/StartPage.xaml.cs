@@ -23,26 +23,40 @@ namespace PushToWin.Pages
         public StartWindow()
         {
             InitializeComponent();
+            BrushConverter bc = new BrushConverter();
+            p.Background = (Brush)bc.ConvertFrom("#193C3E");
+            l1.Background = (Brush)bc.ConvertFrom("#476365");
+            this.DataContext = context;
         }
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private void Label_MouseEnter(object sender, MouseEventArgs e)
         {
-            DataContext = context;
+            context.ImgSwitch((sender as Label).Name);
         }
-        //private void Label_MouseEnter(object sender, MouseEventArgs e)
-        //{
-        //    context.ImgSwitch((sender as Label).Name.Substring(2));
-        //}
 
-        //private void Label_MouseLeave(object sender, MouseEventArgs e)
-        //{
-        //    context.ImgSwitch((sender as Label).Name.Substring(2));
-        //}
+        private void Label_MouseLeave(object sender, MouseEventArgs e)
+        {
+            context.ImgSwitch((sender as Label).Name);
+        }
 
-        //private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        //{
-        //    var send = (sender as Label).Name;
-        //    if (send == "laQuit") Application.Current.Shutdown();
-        //    MainWindow.context.MakeVisible(send.Substring(2));
-        //}
+        private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e) //KÉSŐBB
+        {
+            var send = (sender as Label).Name;
+            if (send == "Quit") {
+                Application.Current.Shutdown();
+                return;
+            }
+            switch (send)
+            {
+                case "Start":
+                    MainWindow.context.MakeVisible("GameWindow");
+                    break;
+                case "LevelSelector":
+                    MainWindow.context.MakeVisible("LevelSelector");
+                    break;
+                case "LevelEditor":
+                    MainWindow.context.MakeVisible("LevelEditorSelect");
+                    break;
+            }
+        }
     }
 }
