@@ -39,5 +39,27 @@ namespace PushToWin.Pages
         {
             context.ImgSwitch((sender as Label).Name);
         }
+        private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e) //Kiegészit majd
+        {
+            switch ((sender as Label).Name)
+            {
+                case "Reset":
+                    //LOGIC
+                    break;
+                case "MainMenu":
+                    MainWindow.context.MakeVisible("Start");
+                    break;
+                case "QuitGame":
+                    Application.Current.Shutdown();
+                    break;
+                case "SaveLevel":
+                    //Popup Logic
+                    break;
+                case "TestLevel":
+                    //LOGIC
+                    MainWindow.context.MakeVisible("GameWindow");
+                    break;
+            }
+        }
     }
 }

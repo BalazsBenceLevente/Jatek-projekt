@@ -38,14 +38,9 @@ namespace PushToWin.Pages
             context.ImgSwitch((sender as Label).Name);
         }
 
-        private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e) //KÉSŐBB
+        private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            var send = (sender as Label).Name;
-            if (send == "Quit") {
-                Application.Current.Shutdown();
-                return;
-            }
-            switch (send)
+            switch ((sender as Label).Name)
             {
                 case "Start":
                     MainWindow.context.MakeVisible("GameWindow");
@@ -55,6 +50,9 @@ namespace PushToWin.Pages
                     break;
                 case "LevelEditor":
                     MainWindow.context.MakeVisible("LevelEditorSelect");
+                    break;
+                case "Quit":
+                    Application.Current.Shutdown();
                     break;
             }
         }
