@@ -44,6 +44,7 @@ namespace PushToWin.Pages
             {
                 case "Start":
                     MainWindow.context.MakeVisible("GameWindow");
+                    //LOGIC: open first not completed level
                     break;
                 case "LevelSelector":
                     MainWindow.context.MakeVisible("LevelSelector");
