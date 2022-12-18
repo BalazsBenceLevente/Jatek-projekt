@@ -1,4 +1,6 @@
-﻿using PushToWin.ViewModels;
+﻿using Microsoft.Win32;
+using PushToWin.Class.Gui;
+using PushToWin.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -53,7 +55,12 @@ namespace PushToWin.Pages
                     Application.Current.Shutdown();
                     break;
                 case "SaveLevel":
-                    //Popup Logic
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.Filter = "Text file (*.txt)|*.txt";
+                    if (saveFileDialog.ShowDialog() == true)
+                    {
+                        GuiFileHandler.SaveLevelToFile(saveFileDialog.FileName,LevelEditorPage.GuiMatrix);
+                    }
                     break;
                 case "TestLevel":
                     //LOGIC

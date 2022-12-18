@@ -79,13 +79,27 @@
     <Resource Include="img\game\decor\Talaj9.png" />
     <Resource Include="img\game\emptyDebug.png" />
     <Resource Include="img\game\emptyRelease.png" />
-    <Resource Include="img\game\object\Doboz.png" />
-    <Resource Include="img\game\object\Ko.png" />
-    <Resource Include="img\game\object\Lakat.png" />
-    <Resource Include="img\game\object\Minusz.png" />
-    <Resource Include="img\game\object\Plusz.png" />
-    <Resource Include="img\game\object\Szorzas.png" />
-    <Resource Include="img\game\object\Zaszlo.png" />
+    <Resource Include="img\game\object\Doboz.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\game\object\Ko.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\game\object\Lakat.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\game\object\Minusz.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\game\object\Plusz.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\game\object\Szorzas.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\game\object\Zaszlo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="img\pages\buttons\Button1.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

@@ -29,14 +29,14 @@ namespace PushToWin.Pages
             BrushConverter bc = new BrushConverter();
             p.Background = (Brush)bc.ConvertFrom("#476365");
         }
-        private static LevelEditorPage Instance { get;  set; }
+        public static LevelEditorPage Instance { get;  set; }
         public static LevelEditorModel context = new LevelEditorModel();
         public static GuiGameMatrix GuiMatrix = new GuiGameMatrix(context.Size_Row,context.Size_Column);
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             DataContext = context;
             Instance = this;
-            Dispatcher.BeginInvoke(new Action(() => GuiLevelEditorHelper.InitGrid(gArea,CB_Decor.Items[4] as GuiGameObjects)), DispatcherPriority.Loaded, null);
+            //Dispatcher.BeginInvoke(new Action(() => GuiLevelEditorHelper.InitGrid(gArea,CB_Decor.Items[4] as GuiGameObjects)), DispatcherPriority.Loaded, null);
         }
 
         private Regex _regex = new Regex("[^0-9]+");
@@ -129,6 +129,7 @@ namespace PushToWin.Pages
             }
             GuiLevelEditorHelper.SetImgFloor3(Instance.gArea, (uint)row, (uint)column, context.ItemImgSrc);
             GuiLevelEditorHelper.SetTextFloor2(Instance.gArea, (uint)row, (uint)column, valueSet);
+            img.Source = LevelEditorModel.ItemEmpty.ImgSrc;
             GuiMatrix.Objects[row, column] = context.ItemSelected;
         }
         private static void Img_MouseItemIsDecor(Image img, int row, int column) //okés

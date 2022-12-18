@@ -1,4 +1,6 @@
-﻿using PushToWin.ViewModels;
+﻿using Microsoft.Win32;
+using PushToWin.Class.Gui;
+using PushToWin.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -43,11 +45,25 @@ namespace PushToWin.Pages
             switch ((sender as Label).Name)
             {
                 case "MakeLevel":
+                    GuiLevelEditorHelper.InitGrid(LevelEditorPage.Instance.gArea,LevelEditorPage.Instance.CB_Decor.Items[4] as GuiGameObjects);
                     MainWindow.context.MakeVisible("LevelEditor");
                     break;
                 case "LoadLevel":
-                    MainWindow.context.MakeVisible("LevelEditor");
-                    //LOGIC
+                    OpenFileDialog ofd = new OpenFileDialog();
+                    ofd.Filter = "Text file (*.txt)|*.txt";
+                    if (ofd.ShowDialog() == true)
+                    {
+                        GuiGameMatrix? temp = GuiFileHandler.MakeMatrixsFormFile(ofd.FileName);
+                        if (temp != null)
+                        {
+                            LevelEditorPage.GuiMatrix = temp;
+                            GuiLevelEditorHelper.LoadGrid(LevelEditorPage.Instance.gArea,LevelEditorPage.GuiMatrix);
+                            uint row = (uint)LevelEditorPage.GuiMatrix.Decor.GetLength(0), column = (uint)LevelEditorPage.GuiMatrix.Decor.GetLength(1);
+                            LevelEditorPage.context.Size_Column = row;
+                            LevelEditorPage.context.Size_Column = column;
+                            MainWindow.context.MakeVisible("LevelEditor");
+                        }
+                    }
                     break;
             }
         }
