@@ -1,18 +1,9 @@
 ﻿using Microsoft.Win32;
 using PushToWin.Class.Gui;
 using PushToWin.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PushToWin.Pages
 {
@@ -45,7 +36,7 @@ namespace PushToWin.Pages
             switch ((sender as Label).Name)
             {
                 case "MakeLevel":
-                    GuiLevelEditorHelper.InitGrid(LevelEditorPage.Instance.gArea,LevelEditorPage.Instance.CB_Decor.Items[4] as GuiGameObjects);
+                    GuiLevelEditorHelper.InitGrid(LevelEditorPage.Instance.gArea, LevelEditorPage.Instance.CB_Decor.Items[4] as GuiGameObjects);
                     MainWindow.context.MakeVisible("LevelEditor");
                     break;
                 case "LoadLevel":
@@ -57,7 +48,7 @@ namespace PushToWin.Pages
                         if (temp != null)
                         {
                             LevelEditorPage.GuiMatrix = temp;
-                            GuiLevelEditorHelper.LoadGrid(LevelEditorPage.Instance.gArea,LevelEditorPage.GuiMatrix);
+                            GuiLevelEditorHelper.LoadGrid(LevelEditorPage.Instance.gArea, LevelEditorPage.GuiMatrix);
                             uint row = (uint)LevelEditorPage.GuiMatrix.Decor.GetLength(0), column = (uint)LevelEditorPage.GuiMatrix.Decor.GetLength(1);
                             LevelEditorPage.context.Size_Column = row;
                             LevelEditorPage.context.Size_Column = column;

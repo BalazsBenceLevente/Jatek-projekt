@@ -46,7 +46,9 @@ namespace PushToWin.Pages
             switch ((sender as Label).Name)
             {
                 case "Reset":
-                    //LOGIC
+                    if (MessageBox.Show("Warning: this action will delete everything!\nAre you sure you want to continue", "Warning!",MessageBoxButton.OKCancel,MessageBoxImage.Warning) != MessageBoxResult.OK) return;
+                    GuiLevelEditorHelper.InitGrid(LevelEditorPage.Instance.gArea, LevelEditorPage.Instance.CB_Decor.Items[4] as GuiGameObjects);
+                    MainWindow.context.MakeVisible("LevelEditor");
                     break;
                 case "MainMenu":
                     MainWindow.context.MakeVisible("Start");
