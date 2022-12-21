@@ -101,7 +101,7 @@ namespace PushToWin.Class.Gui
             }
             catch (Exception)
             {
-                MessageBox.Show("File corrupted !","Error",MessageBoxButton.OK,MessageBoxImage.Error);
+                MessageBox.Show("File corrupted !", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
         }

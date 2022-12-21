@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PushToWin.Class.Gui;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -30,7 +31,7 @@ namespace PushToWin.Pages
         {
             int row = 6, 
                 col = 10;
-            int lockedTo = 5+3;
+            int lockedTo = 10;
             int num = 1;
             for (int r = 0; r < row; r++)
             {
@@ -52,8 +53,24 @@ namespace PushToWin.Pages
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //Logic: accept only number levels
-            MainWindow.context.MakeVisible("GameWindow");
+            string name = (sender as Button).Content.ToString();
+            int s;
+            bool result = int.TryParse(name, out s);
+            if (result)
+            {
+                string loc = $"../../../Levels/{name}.txt";
+                GuiGameMatrix? temp = GuiFileHandler.MakeMatrixsFormFile(loc);
+                if (temp != null)
+                {
+                    LevelEditorPage.GuiMatrix = temp;
+                    GuiLevelEditorHelper.LoadGrid(LevelEditorPage.Instance.gArea, LevelEditorPage.GuiMatrix);
+                    uint row = (uint)LevelEditorPage.GuiMatrix.Decor.GetLength(0), column = (uint)LevelEditorPage.GuiMatrix.Decor.GetLength(1);
+                    LevelEditorPage.context.Size_Column = row;
+                    LevelEditorPage.context.Size_Column = column;
+                    MainWindow.context.MakeVisible("LevelEditor");
+                }
+            }
+            //MainWindow.context.MakeVisible("GameWindow");
         }
     }
 }
