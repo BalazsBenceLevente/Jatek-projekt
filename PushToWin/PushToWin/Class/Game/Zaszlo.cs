@@ -5,12 +5,19 @@ using System.Text;
 namespace PushToWin.Class.Game
 {
     
-    class Zaszlo
+    class Zaszlo : Jatekos
     {
-        
-        public string Neve { get; set; }
+        public string Zaszloneve { get; set; }
         public int x2, y2;
 
+        
+        public void Teljesit()
+        {
+            if (x2 == x && y2 == y )
+            {
+                
+            }
+        }
 
         
     }
