@@ -171,6 +171,11 @@ namespace PushToWin.Class.Gui
             TextBox n = g.Children[(int)D2[new Tuple<uint, uint>(row, column)]] as TextBox;
             n.Text  = setText;
         }
+        public static void SetImgFloor1(Grid g, uint row, uint column, BitmapImage setImg)
+        {
+            Image n = g.Children[(int)D1[new Tuple<uint, uint>(row, column)]] as Image;
+            n.Source = setImg;
+        }
         public static Tuple<uint,uint>? FindPlayerChildrenIndex(GuiGameObjects[,] matrix)
         {
             uint row = (uint)matrix.GetLength(0), column = (uint)matrix.GetLength(1);
@@ -182,6 +187,28 @@ namespace PushToWin.Class.Gui
                 }
             }
             return null;
+        }
+        public static void UpdateGrid(Grid g,GuiGameObjects[,] matrix)
+        {
+            uint row = (uint)matrix.GetLength(0), column = (uint)matrix.GetLength(1);
+            for (int r = 0; r < row; r++)
+            {
+                for (int c = 0; c < column; c++)
+                {
+                    SetImgFloor3(g, (uint)r, (uint)c, LevelEditorModel.ItemEmpty.ImgSrc);
+                    SetTextFloor2(g, (uint)r, (uint)c, "");
+                    SetImgFloor1(g, (uint)r, (uint)c, LevelEditorModel.ItemEmpty.ImgSrc);
+                    if (matrix[r, c] != null && matrix[r,c].IsPlayer)
+                    {
+                        SetImgFloor1(g, (uint)r, (uint)c, matrix[r,c].ImgSrc);
+                    }
+                    if (matrix[r, c] != null && matrix[r, c].IsObject)
+                    {
+                        SetImgFloor3(g, (uint)r, (uint)c, matrix[r, c].ImgSrc);
+                        SetTextFloor2(g, (uint)r, (uint)c, matrix[r, c].Value != null ? matrix[r, c].Value.ToString() : "");
+                    }
+                }
+            }
         }
     }
 }

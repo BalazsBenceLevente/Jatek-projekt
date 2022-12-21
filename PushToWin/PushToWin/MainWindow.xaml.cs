@@ -1,4 +1,5 @@
-﻿using PushToWin.Pages;
+﻿using PushToWin.Class.Gui;
+using PushToWin.Pages;
 using PushToWin.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,34 @@ namespace PushToWin
                     case "GameWindowEsc": // To Game window
                         context.MakeVisible("GameWindow");
                         break;
+                }
+                return;
+            }
+            if (context.VisibilityActiveName == "LevelEditor")
+            {
+                switch (e.Key)
+                {
+                    case Key.Q:
+                        (LevelEditorPage.GuiMatrix.Objects[0,0], LevelEditorPage.GuiMatrix.Objects[1,1]) = (LevelEditorPage.GuiMatrix.Objects[1,1], LevelEditorPage.GuiMatrix.Objects[0,0]);
+                        GuiLevelEditorHelper.UpdateGrid(LevelEditorPage.Instance.gArea,LevelEditorPage.GuiMatrix.Objects);
+                        //MessageBox.Show(e.Key.ToString());
+                        break;
+                    case Key.W:
+                        MessageBox.Show(e.Key.ToString());
+                        break;
+                    case Key.E:
+                        MessageBox.Show(e.Key.ToString());
+                        break;
+                    case Key.A:
+                        MessageBox.Show(e.Key.ToString());
+                        break;
+                    case Key.S:
+                        MessageBox.Show(e.Key.ToString());
+                        break;
+                    case Key.D:
+                        MessageBox.Show(e.Key.ToString());
+                        break;
+
                 }
             }
         }
