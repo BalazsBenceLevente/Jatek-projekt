@@ -31,7 +31,7 @@ namespace PushToWin.Pages
         {
             int row = 6, 
                 col = 10;
-            int lockedTo = 10;
+            int lockedTo = 11;
             int num = 1;
             for (int r = 0; r < row; r++)
             {

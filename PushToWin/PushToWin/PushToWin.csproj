@@ -121,4 +121,8 @@
     <Resource Include="img\pages\leveleditor\SelectItem.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Levels\" />
+  </ItemGroup>
+
 </Project>
